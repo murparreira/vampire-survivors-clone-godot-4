@@ -1,9 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://dycrbn4mr3aco"]
+[gd_scene load_steps=5 format=3 uid="uid://dycrbn4mr3aco"]
 
 [ext_resource type="Script" path="res://scenes/ui/ability_upgrade_card.gd" id="1_btsk5"]
+[ext_resource type="Texture2D" uid="uid://othdwyisoide" path="res://scenes/abilities/longsword_ability/longsword.png" id="2_448rm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e7da3"]
+bg_color = Color(0.229703, 0.0830232, 0.0278184, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_tckoc"]
 
 [node name="AbilityUpgradeCard" type="PanelContainer"]
 custom_minimum_size = Vector2(120, 150)
+theme_override_styles/panel = SubResource("StyleBoxFlat_e7da3")
 script = ExtResource("1_btsk5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -19,11 +31,27 @@ layout_mode = 2
 [node name="NameLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Sword Quickness"
+text = "Quickness"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_tckoc")
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_tckoc")
 
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 100)
 layout_mode = 2
-text = "Write some description right here with wrapping"
+theme_override_font_sizes/font_size = 12
+text = "Increase longsword attack rate by 20%"
 autowrap_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(57, 111)
+rotation = -0.523599
+scale = Vector2(3, 3)
+texture = ExtResource("2_448rm")

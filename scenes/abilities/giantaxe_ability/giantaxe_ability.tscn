@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://btyhpkcxlpk2k"]
+
+[ext_resource type="Script" path="res://scenes/abilities/giantaxe_ability/giantaxe_ability.gd" id="1_3erok"]
+[ext_resource type="Texture2D" uid="uid://tt2ny8ux8v54" path="res://scenes/abilities/giantaxe_ability/giantaxe.png" id="2_6horb"]
+[ext_resource type="PackedScene" uid="uid://bcxwla5ie3j6t" path="res://scenes/components/hitbox_component.tscn" id="3_16nix"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trio4"]
+
+[sub_resource type="Animation" id="Animation_oxmel"]
+resource_name = "spin"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_x7cf3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o0olj"]
+_data = {
+"RESET": SubResource("Animation_x7cf3"),
+"spin": SubResource("Animation_oxmel")
+}
+
+[node name="GiantaxeAbility" type="Node2D"]
+script = ExtResource("1_3erok")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6horb")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("3_16nix")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+scale = Vector2(1.2, 1.2)
+shape = SubResource("CircleShape2D_trio4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o0olj")
+}
+autoplay = "spin"

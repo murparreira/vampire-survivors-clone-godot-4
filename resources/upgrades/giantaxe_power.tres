@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://ckg7osuq5kl0o"]
+
+[ext_resource type="Script" path="res://resources/upgrades/abilty_upgrade.gd" id="1_38mkq"]
+
+[resource]
+script = ExtResource("1_38mkq")
+id = "giantaxe_power"
+name = "Power"
+description = "Increase giant axe attack power by 50%"

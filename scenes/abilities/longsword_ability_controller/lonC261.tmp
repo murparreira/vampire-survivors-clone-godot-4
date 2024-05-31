@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx7h4muent7rr"]
+
+[ext_resource type="Script" path="res://scenes/abilities/longsword_ability_controller/longsword_ability_controller.gd" id="1_op71u"]
+[ext_resource type="PackedScene" uid="uid://bv5vgx5h6j26" path="res://scenes/abilities/longsword_ability/longsword_ability.tscn" id="2_qfrr7"]
+
+[node name="LongswordAbilityController" type="Node"]
+script = ExtResource("1_op71u")
+longsword_ability = ExtResource("2_qfrr7")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

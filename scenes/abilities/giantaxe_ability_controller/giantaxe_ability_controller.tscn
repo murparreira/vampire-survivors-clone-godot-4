@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjabx5tn3kb2v"]
+
+[ext_resource type="Script" path="res://scenes/abilities/giantaxe_ability_controller/giantaxe_ability_controller.gd" id="1_5kenr"]
+[ext_resource type="PackedScene" uid="uid://btyhpkcxlpk2k" path="res://scenes/abilities/giantaxe_ability/giantaxe_ability.tscn" id="2_tw07v"]
+
+[node name="GiantaxeAbilityController" type="Node"]
+script = ExtResource("1_5kenr")
+giantaxe_ability = ExtResource("2_tw07v")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true

@@ -49,5 +49,5 @@ func on_timer_timeout():
 func on_arena_difficulty_increased(arena_difficulty: int):
 	var time_off = (0.1 / 12) * arena_difficulty
 	time_off = max(time_off, 0.7)
-	print(time_off)
 	timer.wait_time = base_spawn_time - time_off
+	print("Arena difficulty increased, now it is level: ", arena_difficulty)

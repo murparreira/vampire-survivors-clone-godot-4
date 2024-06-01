@@ -39,9 +39,9 @@ func on_timer_timeout():
 	longsword_instance.rotation = enemy_direction.angle()
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
-	if upgrade.id != "longsword_rate":
+	if upgrade.id != "longsword_quickness":
 		return
-	var percent_reduction = current_upgrades["longsword_rate"]["quantity"] * 0.2
+	var percent_reduction = current_upgrades["longsword_quickness"]["quantity"] * 0.2
 	$Timer.wait_time = base_wait_time * (1 - percent_reduction)
 	$Timer.start()
-	print($Timer.wait_time)
+	print("Longsword wait time decreased. Now: ", $Timer.wait_time)

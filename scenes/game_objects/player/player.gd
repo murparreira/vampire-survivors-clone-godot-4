@@ -33,9 +33,7 @@ func _process(delta):
 		animation_player.play("RESET")
 		
 	var move_sign = sign(movement_vector.x)
-	if move_sign == 0:
-		visuals.scale = Vector2.ONE
-	else:
+	if move_sign != 0:
 		visuals.scale = Vector2(move_sign, 1)
 
 func get_movement_vector():
@@ -49,7 +47,7 @@ func check_deal_damage():
 		return
 	health_component.damage(3)
 	damage_interval_timer.start()
-	print(health_component.current_health)
+	print("Took a hit, HP is now: ", health_component.current_health)
 	
 func update_health_display():
 	health_bar.value = health_component.get_health_percentage()

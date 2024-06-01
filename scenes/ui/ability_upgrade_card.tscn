@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dycrbn4mr3aco"]
+[gd_scene load_steps=4 format=3 uid="uid://dycrbn4mr3aco"]
 
 [ext_resource type="Script" path="res://scenes/ui/ability_upgrade_card.gd" id="1_btsk5"]
-[ext_resource type="Texture2D" uid="uid://othdwyisoide" path="res://scenes/abilities/longsword_ability/longsword.png" id="2_448rm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e7da3"]
 bg_color = Color(0.229703, 0.0830232, 0.0278184, 1)
@@ -10,6 +9,10 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_tckoc"]
 
@@ -38,10 +41,6 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxLine_tckoc")
 
-[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/separator = SubResource("StyleBoxLine_tckoc")
-
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 100)
@@ -51,7 +50,7 @@ text = "Increase longsword attack rate by 20%"
 autowrap_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 position = Vector2(57, 111)
 rotation = -0.523599
 scale = Vector2(3, 3)
-texture = ExtResource("2_448rm")

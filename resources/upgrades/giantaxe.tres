@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://ckg7osuq5kl0o"]
+
+[ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="1_o8a0q"]
+[ext_resource type="PackedScene" uid="uid://cjabx5tn3kb2v" path="res://scenes/abilities/giantaxe_ability_controller/giantaxe_ability_controller.tscn" id="1_vp4md"]
+[ext_resource type="Texture2D" uid="uid://tt2ny8ux8v54" path="res://scenes/abilities/giantaxe_ability/giantaxe.png" id="2_vv23g"]
+
+[resource]
+script = ExtResource("1_o8a0q")
+ability_controller_scene = ExtResource("1_vp4md")
+id = "giantaxe"
+name = "Giantaxe"
+description = "Periodically sends out a spinning axe"
+max_quantity = 2
+sprite = ExtResource("2_vv23g")

@@ -1,9 +1,12 @@
-[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=2 format=3 uid="uid://komfwpn66pj"]
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://komfwpn66pj"]
 
-[ext_resource type="Script" path="res://resources/upgrades/abilty_upgrade.gd" id="1_ws855"]
+[ext_resource type="Script" path="res://resources/upgrades/abilty_upgrade.gd" id="1_tpu67"]
+[ext_resource type="Texture2D" uid="uid://othdwyisoide" path="res://scenes/abilities/longsword_ability/longsword.png" id="2_cuv6n"]
 
 [resource]
-script = ExtResource("1_ws855")
-id = "longsword_rate"
+script = ExtResource("1_tpu67")
+id = "longsword_quickness"
+max_quantity = 4
 name = "Quickness"
-description = "Increase longsword attack rate by 20%"
+description = "Increase longsword rate by 20%"
+sprite = ExtResource("2_cuv6n")

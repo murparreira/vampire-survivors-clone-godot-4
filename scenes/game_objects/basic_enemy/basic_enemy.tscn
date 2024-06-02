@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c03x1jaub6252"]
+[gd_scene load_steps=16 format=3 uid="uid://c03x1jaub6252"]
 
 [ext_resource type="Texture2D" uid="uid://cujy660g0w0pg" path="res://scenes/game_objects/basic_enemy/basic_enemy.png" id="1_w7y32"]
 [ext_resource type="Script" path="res://scenes/game_objects/basic_enemy/basic_enemy.gd" id="1_x6y4f"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dvdfe8d2x17yl" path="res://scenes/components/health_component.tscn" id="4_esr0b"]
 [ext_resource type="PackedScene" uid="uid://du7chqaxrvnvt" path="res://scenes/components/hurtbox_component.tscn" id="4_kpfkb"]
 [ext_resource type="PackedScene" uid="uid://6mxgxvxci34y" path="res://scenes/components/velocity_component.tscn" id="5_8smoy"]
+[ext_resource type="PackedScene" uid="uid://dai2tp27gshtu" path="res://scenes/components/hit_flash_component.tscn" id="6_562hl"]
 [ext_resource type="PackedScene" uid="uid://02s3xbwq1jcb" path="res://scenes/components/death_component.tscn" id="6_yr24l"]
+[ext_resource type="Shader" path="res://scenes/components/hit_flash_component.gdshader" id="7_aphkh"]
 
 [sub_resource type="Animation" id="Animation_po5b8"]
 length = 0.001
@@ -70,6 +72,11 @@ _data = {
 "walk": SubResource("Animation_00ipw")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7nqco"]
+resource_local_to_scene = true
+shader = ExtResource("7_aphkh")
+shader_parameter/lerp_percent = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_lduwo"]
 radius = 12.0
 
@@ -100,6 +107,11 @@ health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("5_8smoy")]
+
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_562hl")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Visuals/Sprite2D")
+hit_flash_material = SubResource("ShaderMaterial_7nqco")
 
 [node name="Visuals" type="Node2D" parent="."]
 

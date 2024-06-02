@@ -1,7 +1,56 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://p8j2t6ehvh4y"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://p8j2t6ehvh4y"]
 
+[ext_resource type="Texture2D" uid="uid://bbf1rfsygd24l" path="res://assets/ui/ui.png" id="1_bdium"]
 [ext_resource type="FontFile" uid="uid://drrbi1wfkemy2" path="res://resources/theme/Rockboxcond12.ttf" id="1_nti61"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qusi4"]
+content_margin_left = 6.0
+content_margin_top = 6.0
+content_margin_right = 6.0
+content_margin_bottom = 6.0
+texture = ExtResource("1_bdium")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(17, 1, 14, 14)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hl8d5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_imw5r"]
+texture = ExtResource("1_bdium")
+texture_margin_left = 4.0
+texture_margin_top = 13.0
+texture_margin_right = 4.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(0, 0, 16, 16)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drx7k"]
+bg_color = Color(0.247059, 0.14902, 0.192157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42w37"]
+bg_color = Color(0.262745, 0.882353, 0.701961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
 
 [resource]
 default_font = ExtResource("1_nti61")
 default_font_size = 16
+AlternatePanelContainer/base_type = &"PanelContainer"
+AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_qusi4")
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 0
+Label/constants/outline_size = 11
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 18
+Label/styles/normal = SubResource("StyleBoxEmpty_hl8d5")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_imw5r")
+ProgressBar/styles/background = SubResource("StyleBoxFlat_drx7k")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_42w37")

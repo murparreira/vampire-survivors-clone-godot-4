@@ -8,7 +8,7 @@
 script = ExtResource("1_o8a0q")
 ability_controller_scene = ExtResource("1_vp4md")
 id = "giantaxe"
+max_quantity = 2
 name = "Giantaxe"
 description = "Periodically sends out a spinning axe"
-max_quantity = 2
 sprite = ExtResource("2_vv23g")

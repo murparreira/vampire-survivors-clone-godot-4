@@ -4,7 +4,8 @@ const MAX_RANGE = 150
 
 @export var longsword_ability: PackedScene
 
-var damage = 5
+var base_damage = 5
+var additional_damage_percent = 1
 var base_wait_time
 
 func _ready():
@@ -31,7 +32,7 @@ func on_timer_timeout():
 	var longsword_instance = longsword_ability.instantiate() as Node2D
 	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 	foreground_layer.add_child(longsword_instance)
-	longsword_instance.hitbox_component.damage = damage
+	longsword_instance.hitbox_component.damage = ceil(base_damage * additional_damage_percent)
 	longsword_instance.global_position = enemies[0].global_position
 	longsword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU)) * 4
 
@@ -39,9 +40,11 @@ func on_timer_timeout():
 	longsword_instance.rotation = enemy_direction.angle()
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
-	if upgrade.id != "longsword_quickness":
-		return
-	var percent_reduction = current_upgrades["longsword_quickness"]["quantity"] * 0.2
-	$Timer.wait_time = base_wait_time * (1 - percent_reduction)
-	$Timer.start()
-	print("Longsword wait time decreased. Now: ", $Timer.wait_time)
+	if upgrade.id == "longsword_rate":
+		var percent_reduction = current_upgrades["longsword_rate"]["quantity"] * 0.2
+		$Timer.wait_time = base_wait_time * (1 - percent_reduction)
+		$Timer.start()
+		print("Longsword wait time decreased. Now: ", $Timer.wait_time)
+	elif upgrade.id == "longsword_damage":
+		additional_damage_percent = 1 + (current_upgrades["longsword_damage"]["quantity"] * .3)
+		print("Longsword damage increased. Now: ", ceil(base_damage * additional_damage_percent))

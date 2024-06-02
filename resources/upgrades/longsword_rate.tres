@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_tpu67")
-id = "longsword_quickness"
+id = "longsword_rate"
 max_quantity = 4
-name = "Quickness"
+name = "Longsword Rate"
 description = "Increase longsword rate by 20%"
 sprite = ExtResource("2_cuv6n")

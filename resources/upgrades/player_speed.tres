@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://6wuhutyryy4o"]
+
+[ext_resource type="Script" path="res://resources/upgrades/abilty_upgrade.gd" id="1_w1ory"]
+[ext_resource type="Texture2D" uid="uid://dciel4txgpha2" path="res://resources/upgrades/speed_potion.png" id="2_pxybh"]
+
+[resource]
+script = ExtResource("1_w1ory")
+id = "player_speed"
+max_quantity = 2
+name = "Move Speed"
+description = "Increases player movement speed by 10%"
+sprite = ExtResource("2_pxybh")

@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bklf8put7tnro"]
+[gd_scene load_steps=12 format=3 uid="uid://bklf8put7tnro"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/player/player.gd" id="1_3wfjf"]
 [ext_resource type="Texture2D" uid="uid://dxremcji48prn" path="res://scenes/game_objects/player/player.png" id="2_8b4pu"]
+[ext_resource type="PackedScene" uid="uid://6mxgxvxci34y" path="res://scenes/components/velocity_component.tscn" id="2_65phj"]
 [ext_resource type="PackedScene" uid="uid://dx7h4muent7rr" path="res://scenes/abilities/longsword_ability_controller/longsword_ability_controller.tscn" id="2_gwm1d"]
 [ext_resource type="PackedScene" uid="uid://dvdfe8d2x17yl" path="res://scenes/components/health_component.tscn" id="3_k08ic"]
 
@@ -111,11 +112,15 @@ libraries = {
 "": SubResource("AnimationLibrary_h3n3x")
 }
 
+[node name="VelocityComponent" parent="." instance=ExtResource("2_65phj")]
+max_speed = 90
+acceleration = 25.0
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_k08ic")]
+
 [node name="Abilities" type="Node" parent="."]
 
 [node name="LongswordAbilityController" parent="Abilities" instance=ExtResource("2_gwm1d")]
-
-[node name="HealthComponent" parent="." instance=ExtResource("3_k08ic")]
 
 [node name="DamageIntervalTimer" type="Timer" parent="."]
 wait_time = 0.5

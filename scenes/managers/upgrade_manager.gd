@@ -10,11 +10,13 @@ var upgrade_giantaxe = preload("res://resources/upgrades/giantaxe.tres")
 var upgrade_giantaxe_damage = preload("res://resources/upgrades/giantaxe_damage.tres")
 var upgrade_longsword_rate = preload("res://resources/upgrades/longsword_rate.tres")
 var upgrade_longsword_damage = preload("res://resources/upgrades/longsword_damage.tres")
+var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 
 func _ready():
 	upgrade_pool.add_item(upgrade_giantaxe, 10)
 	upgrade_pool.add_item(upgrade_longsword_rate, 10)
 	upgrade_pool.add_item(upgrade_longsword_damage, 10)
+	upgrade_pool.add_item(upgrade_player_speed, 5)
 	experience_manager.level_up.connect(on_level_up)
 
 func update_upgrade_poll(chosen_upgrade: AbilityUpgrade):

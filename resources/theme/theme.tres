@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://p8j2t6ehvh4y"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://p8j2t6ehvh4y"]
 
 [ext_resource type="Texture2D" uid="uid://bbf1rfsygd24l" path="res://assets/ui/ui.png" id="1_bdium"]
 [ext_resource type="FontFile" uid="uid://drrbi1wfkemy2" path="res://resources/theme/Rockboxcond12.ttf" id="1_nti61"]
@@ -14,6 +14,32 @@ texture_margin_top = 2.0
 texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 region_rect = Rect2(17, 1, 14, 14)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6sff"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbwr3"]
+texture = ExtResource("1_bdium")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(20, 20, 8, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ndk0i"]
+texture = ExtResource("1_bdium")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(4, 20, 8, 8)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cid7c"]
+texture = ExtResource("1_bdium")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(4, 20, 8, 8)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hl8d5"]
 
@@ -41,6 +67,14 @@ default_font = ExtResource("1_nti61")
 default_font_size = 16
 AlternatePanelContainer/base_type = &"PanelContainer"
 AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_qusi4")
+Button/colors/font_color = Color(0.247059, 0.14902, 0.192157, 1)
+Button/colors/font_focus_color = Color(0.247059, 0.14902, 0.192157, 1)
+Button/colors/font_hover_color = Color(0.741176, 0.423529, 0.290196, 1)
+Button/colors/font_pressed_color = Color(0.247059, 0.14902, 0.192157, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_f6sff")
+Button/styles/hover = SubResource("StyleBoxTexture_kbwr3")
+Button/styles/normal = SubResource("StyleBoxTexture_ndk0i")
+Button/styles/pressed = SubResource("StyleBoxTexture_cid7c")
 Label/colors/font_color = Color(1, 1, 1, 1)
 Label/colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)

@@ -16,7 +16,7 @@ func on_timer_timeout():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
 	if player == null:
 		return
-	var enemies = get_tree().get_nodes_in_group("basic_enemy")
+	var enemies = get_tree().get_nodes_in_group("enemy")
 	enemies = enemies.filter(func(enemy : Node2D): 
 		return enemy.global_position.distance_squared_to(player.global_position) < pow(MAX_RANGE, 2)
 	)

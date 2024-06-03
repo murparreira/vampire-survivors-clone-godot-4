@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bo5yanqoe76rd"]
+[gd_scene load_steps=22 format=3 uid="uid://bo5yanqoe76rd"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/spider_enemy/spider_enemy.gd" id="1_cqf0c"]
 [ext_resource type="Texture2D" uid="uid://bi0thyfri7hhr" path="res://scenes/game_objects/spider_enemy/spider_enemy.png" id="1_ircus"]
@@ -7,8 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://6mxgxvxci34y" path="res://scenes/components/velocity_component.tscn" id="3_3oqg2"]
 [ext_resource type="PackedScene" uid="uid://du7chqaxrvnvt" path="res://scenes/components/hurtbox_component.tscn" id="4_y8ncm"]
 [ext_resource type="PackedScene" uid="uid://derxncbuykfl5" path="res://scenes/components/vial_drop_component.tscn" id="7_rvoun"]
+[ext_resource type="PackedScene" uid="uid://dsg2ls65770mj" path="res://scenes/components/random_stream_player_2d_component.tscn" id="8_hf8r8"]
 [ext_resource type="PackedScene" uid="uid://dai2tp27gshtu" path="res://scenes/components/hit_flash_component.tscn" id="8_s1whh"]
 [ext_resource type="Shader" path="res://scenes/components/hit_flash_component.gdshader" id="9_ae4fh"]
+[ext_resource type="AudioStream" uid="uid://dj3ems34n3ku4" path="res://assets/audio/footstep_carpet_000.ogg" id="9_s3rh5"]
+[ext_resource type="AudioStream" uid="uid://dc3qt56kyfw17" path="res://assets/audio/footstep_carpet_001.ogg" id="10_n5d4b"]
+[ext_resource type="AudioStream" uid="uid://cpk5fvgl453mo" path="res://assets/audio/footstep_carpet_002.ogg" id="11_fy6j8"]
+[ext_resource type="AudioStream" uid="uid://dotj651vwgdh7" path="res://assets/audio/footstep_carpet_003.ogg" id="12_beb8o"]
+[ext_resource type="AudioStream" uid="uid://bsad3wyudntja" path="res://assets/audio/footstep_carpet_004.ogg" id="13_lfh7j"]
 
 [sub_resource type="Animation" id="Animation_umyh1"]
 length = 0.001
@@ -153,6 +159,9 @@ acceleration = 50.0
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 hit_flash_material = SubResource("ShaderMaterial_sl4x1")
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("8_hf8r8")]
+streams = Array[AudioStream]([ExtResource("9_s3rh5"), ExtResource("10_n5d4b"), ExtResource("11_fy6j8"), ExtResource("12_beb8o"), ExtResource("13_lfh7j")])
 
 [node name="Visuals" type="Node2D" parent="."]
 

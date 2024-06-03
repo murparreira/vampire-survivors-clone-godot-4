@@ -1,13 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv40n4du4qwbu"]
+[gd_scene load_steps=10 format=3 uid="uid://dv40n4du4qwbu"]
 
 [ext_resource type="Texture2D" uid="uid://d0g6ae880e1qr" path="res://scenes/game_objects/experience_vial/experience_vial.png" id="1_2oixh"]
 [ext_resource type="Script" path="res://scenes/game_objects/experience_vial/experience_vial.gd" id="1_xsqog"]
+[ext_resource type="PackedScene" uid="uid://dsg2ls65770mj" path="res://scenes/components/random_stream_player_2d_component.tscn" id="3_u3sw1"]
+[ext_resource type="AudioStream" uid="uid://biv2sn150dhio" path="res://assets/audio/impactGeneric_light_000.ogg" id="4_s2472"]
+[ext_resource type="AudioStream" uid="uid://btnb56os8pjw7" path="res://assets/audio/impactGeneric_light_001.ogg" id="5_sf05n"]
+[ext_resource type="AudioStream" uid="uid://cphohpe3ctvh" path="res://assets/audio/impactGeneric_light_002.ogg" id="6_s5wf5"]
+[ext_resource type="AudioStream" uid="uid://dnfi21tia7kyr" path="res://assets/audio/impactGeneric_light_003.ogg" id="7_ynvlm"]
+[ext_resource type="AudioStream" uid="uid://5pasifc2c3m5" path="res://assets/audio/impactGeneric_light_004.ogg" id="8_mtkbr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ewwb6"]
 radius = 16.0
 
 [node name="ExperienceVial" type="Node2D" groups=["experience_vial"]]
 script = ExtResource("1_xsqog")
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("3_u3sw1")]
+streams = Array[AudioStream]([ExtResource("4_s2472"), ExtResource("5_sf05n"), ExtResource("6_s5wf5"), ExtResource("7_ynvlm"), ExtResource("8_mtkbr")])
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0

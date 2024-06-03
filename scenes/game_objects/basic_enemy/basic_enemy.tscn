@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c03x1jaub6252"]
+[gd_scene load_steps=22 format=3 uid="uid://c03x1jaub6252"]
 
 [ext_resource type="Texture2D" uid="uid://cujy660g0w0pg" path="res://scenes/game_objects/basic_enemy/basic_enemy.png" id="1_w7y32"]
 [ext_resource type="Script" path="res://scenes/game_objects/basic_enemy/basic_enemy.gd" id="1_x6y4f"]
@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://dai2tp27gshtu" path="res://scenes/components/hit_flash_component.tscn" id="6_562hl"]
 [ext_resource type="PackedScene" uid="uid://02s3xbwq1jcb" path="res://scenes/components/death_component.tscn" id="6_yr24l"]
 [ext_resource type="Shader" path="res://scenes/components/hit_flash_component.gdshader" id="7_aphkh"]
+[ext_resource type="PackedScene" uid="uid://dsg2ls65770mj" path="res://scenes/components/random_stream_player_2d_component.tscn" id="8_gq1cm"]
+[ext_resource type="AudioStream" uid="uid://dc3qt56kyfw17" path="res://assets/audio/footstep_carpet_001.ogg" id="10_s1jvr"]
+[ext_resource type="AudioStream" uid="uid://dj3ems34n3ku4" path="res://assets/audio/footstep_carpet_000.ogg" id="10_u7tbp"]
+[ext_resource type="AudioStream" uid="uid://cpk5fvgl453mo" path="res://assets/audio/footstep_carpet_002.ogg" id="11_r6gk3"]
+[ext_resource type="AudioStream" uid="uid://dotj651vwgdh7" path="res://assets/audio/footstep_carpet_003.ogg" id="12_fvdus"]
+[ext_resource type="AudioStream" uid="uid://bsad3wyudntja" path="res://assets/audio/footstep_carpet_004.ogg" id="13_hblqf"]
 
 [sub_resource type="Animation" id="Animation_po5b8"]
 length = 0.001
@@ -112,6 +118,9 @@ sprite = NodePath("../Visuals/Sprite2D")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 hit_flash_material = SubResource("ShaderMaterial_7nqco")
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("8_gq1cm")]
+streams = Array[AudioStream]([ExtResource("10_u7tbp"), ExtResource("10_s1jvr"), ExtResource("11_r6gk3"), ExtResource("12_fvdus"), ExtResource("13_hblqf")])
 
 [node name="Visuals" type="Node2D" parent="."]
 

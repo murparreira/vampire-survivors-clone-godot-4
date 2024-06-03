@@ -1,7 +1,28 @@
-[gd_scene load_steps=9 format=3 uid="uid://02s3xbwq1jcb"]
+[gd_scene load_steps=15 format=3 uid="uid://02s3xbwq1jcb"]
 
 [ext_resource type="Texture2D" uid="uid://cujy660g0w0pg" path="res://scenes/game_objects/basic_enemy/basic_enemy.png" id="1_afqio"]
 [ext_resource type="Script" path="res://scenes/components/death_component.gd" id="1_rvvxi"]
+[ext_resource type="PackedScene" uid="uid://dsg2ls65770mj" path="res://scenes/components/random_stream_player_2d_component.tscn" id="3_1gmmm"]
+[ext_resource type="AudioStream" uid="uid://dj3ems34n3ku4" path="res://assets/audio/footstep_carpet_000.ogg" id="4_dal0o"]
+[ext_resource type="AudioStream" uid="uid://dc3qt56kyfw17" path="res://assets/audio/footstep_carpet_001.ogg" id="5_ev3s4"]
+[ext_resource type="AudioStream" uid="uid://cpk5fvgl453mo" path="res://assets/audio/footstep_carpet_002.ogg" id="6_otnpj"]
+[ext_resource type="AudioStream" uid="uid://dotj651vwgdh7" path="res://assets/audio/footstep_carpet_003.ogg" id="7_fwid5"]
+[ext_resource type="AudioStream" uid="uid://bsad3wyudntja" path="res://assets/audio/footstep_carpet_004.ogg" id="8_dk8n0"]
+
+[sub_resource type="Animation" id="Animation_ef1a7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_vjxju"]
 resource_name = "default"
@@ -30,21 +51,6 @@ tracks/1/keys = {
 "args": [],
 "method": &"queue_free"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_ef1a7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GPUParticles2D:emitting")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_04ted"]
@@ -88,3 +94,6 @@ lifetime = 0.5
 one_shot = true
 fixed_fps = 0
 interpolate = false
+
+[node name="RandomStreamPlayer2DComponent" parent="." instance=ExtResource("3_1gmmm")]
+streams = Array[AudioStream]([ExtResource("4_dal0o"), ExtResource("5_ev3s4"), ExtResource("6_otnpj"), ExtResource("7_fwid5"), ExtResource("8_dk8n0"), ExtResource("4_dal0o"), ExtResource("5_ev3s4"), ExtResource("6_otnpj"), ExtResource("7_fwid5"), ExtResource("8_dk8n0")])

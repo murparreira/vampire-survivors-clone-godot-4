@@ -16,4 +16,4 @@ func on_died():
 	entities.add_child(self)
 	global_position = spawn_position
 	$AnimationPlayer.play("default")
-
+	$RandomStreamPlayer2DComponent.play_random()

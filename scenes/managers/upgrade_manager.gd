@@ -20,7 +20,7 @@ func _ready():
 	experience_manager.level_up.connect(on_level_up)
 
 func update_upgrade_poll(chosen_upgrade: AbilityUpgrade):
-	if chosen_upgrade.id == upgrade_giantaxe.id && current_upgrades[upgrade_giantaxe.id]["quantity"] ==  0:
+	if chosen_upgrade.id == upgrade_giantaxe.id && current_upgrades[upgrade_giantaxe.id]["quantity"] == 1:
 		upgrade_pool.add_item(upgrade_giantaxe_damage, 10)
 
 func apply_upgrade(upgrade: ):

@@ -36,6 +36,19 @@ func get_spawn_position():
 			break
 		else:
 			random_direction = random_direction.rotated(deg_to_rad(90))
+		
+		# Draw raycast as line if Debug -> Visible Collision Shapes is enabled
+		if get_tree().debug_collisions_hint:
+			var debug_line = Line2D.new()
+			debug_line.z_index = 99 # Draw on top of everything
+			debug_line.width = 1
+			debug_line.add_point(query_parameters.from, 0)
+			debug_line.add_point(query_parameters.to, 1)
+			add_child(debug_line)
+			if !result.is_empty():
+				debug_line.set_point_position(1, result.get("position"))
+				debug_line.default_color = Color.RED
+
 	return spawn_position
 
 func on_timer_timeout():

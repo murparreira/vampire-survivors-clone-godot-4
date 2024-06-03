@@ -14,9 +14,16 @@ func _ready():
 	$%RestartButton.pressed.connect(on_restart_button_pressed)
 	$%QuitButton.pressed.connect(on_quit_button_pressed)
 
-func set_defeat_labels():
+func play_jingle(defeat: bool = false):
+	if defeat:
+		$DefeatJingle.play()
+	else:
+		$VictoryJingle.play()
+
+func set_defeat_labels_and_play_jingle():
 	$%TitleLabel.text = "DEFEAT"
 	$%SubtitleLabel.text = "YOU DIED!"
+	play_jingle(true)
 
 func on_restart_button_pressed():
 	get_tree().paused = false

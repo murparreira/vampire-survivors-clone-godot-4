@@ -55,6 +55,6 @@ text = "Options"
 [node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_upbx5")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Quit"
+text = "Quit Game"
 
 [node name="Vignette" parent="." instance=ExtResource("3_hqwrd")]

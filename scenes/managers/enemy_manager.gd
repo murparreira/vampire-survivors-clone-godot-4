@@ -25,7 +25,7 @@ func get_spawn_position():
 	
 	var spawn_position = Vector2.ZERO
 	var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
-	for i in 4:
+	for i in 8:
 		spawn_position = player.global_position + (random_direction * SPAWN_RADIUS)
 		var additional_check_offset = random_direction * 20
 		
@@ -35,7 +35,7 @@ func get_spawn_position():
 		if result.is_empty():
 			break
 		else:
-			random_direction = random_direction.rotated(deg_to_rad(90))
+			random_direction = random_direction.rotated(deg_to_rad(45))
 		
 		# Draw raycast as line if Debug -> Visible Collision Shapes is enabled
 		if get_tree().debug_collisions_hint:

@@ -37,7 +37,7 @@ func apply_upgrade(upgrade: ):
 	if upgrade.max_quantity > 0:
 		var current_quantity = current_upgrades[upgrade.id]["quantity"]
 		if current_quantity == upgrade.max_quantity:
-			upgrade_pool = upgrade_pool.remove_item(upgrade)
+			upgrade_pool.remove_item(upgrade)
 	
 	update_upgrade_poll(upgrade)
 	GameEvents.emit_ability_upgrade_added(upgrade, current_upgrades)

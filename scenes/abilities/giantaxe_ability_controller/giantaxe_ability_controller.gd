@@ -2,7 +2,7 @@ extends Node
 
 @export var giantaxe_ability: PackedScene
 
-var base_damage = 10
+var base_damage = 8
 var additional_damage_percent = 1
 var base_wait_time
 var giantaxe_number = 1
@@ -20,12 +20,11 @@ func on_timer_timeout():
 	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 	if foreground_layer == null:
 		return
-		
-	var giantaxe_instance = giantaxe_ability.instantiate() as Node2D
-	if giantaxe_instance == null:
-		return
 	
 	for i in giantaxe_number:
+		var giantaxe_instance = giantaxe_ability.instantiate() as Node2D
+		if giantaxe_instance == null:
+			return
 		foreground_layer.add_child(giantaxe_instance)
 		giantaxe_instance.global_position = player.global_position
 		giantaxe_instance.hitbox_component.damage = base_damage * additional_damage_percent
@@ -42,3 +41,5 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 	elif upgrade.id == "ability_quantity":
 		giantaxe_number += 1
 		print("Number of Giantaxes increased. Now: ", giantaxe_number)
+	else:
+		return

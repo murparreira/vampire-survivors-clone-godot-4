@@ -36,7 +36,7 @@ func apply_upgrade(upgrade: ):
 		}
 	else:
 		current_upgrades[upgrade.id]["quantity"] +=  1
-	print("Acquire a new upgrade. Upgrades are now: ", current_upgrades)
+	print("Acquire a new " + upgrade.id + " upgrade. Upgrades are now: ", current_upgrades)
 	
 	if upgrade.max_quantity > 0:
 		var current_quantity = current_upgrades[upgrade.id]["quantity"]

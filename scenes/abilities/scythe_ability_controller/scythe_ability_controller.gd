@@ -20,12 +20,11 @@ func on_timer_timeout():
 	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 	if foreground_layer == null:
 		return
-		
-	var scythe_instance = scythe_ability.instantiate() as Node2D
-	if scythe_instance == null:
-		return
 	
 	for i in scythe_number:
+		var scythe_instance = scythe_ability.instantiate() as Node2D
+		if scythe_instance == null:
+			return
 		foreground_layer.add_child(scythe_instance)
 		var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
 
@@ -39,10 +38,12 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		var percent_reduction = current_upgrades["cooldown_reduction"]["quantity"] * 0.1
 		$Timer.wait_time = base_wait_time * (1 - percent_reduction)
 		$Timer.start()
-		print("Giantaxe wait time decreased. Now: ", $Timer.wait_time)
+		print("Scythe wait time decreased. Now: ", $Timer.wait_time)
 	elif upgrade.id == "buff_damage":
 		additional_damage_percent = 1 + (current_upgrades["buff_damage"]["quantity"] * .1)
-		print("Giantaxe damage increased. Now: ", base_damage * additional_damage_percent)
+		print("Scythe damage increased. Now: ", base_damage * additional_damage_percent)
 	elif upgrade.id == "ability_quantity":
 		scythe_number += 1
-		print("Number of Giantaxes increased. Now: ", scythe_number)
+		print("Number of Scythes increased. Now: ", scythe_number)
+	else:
+		return

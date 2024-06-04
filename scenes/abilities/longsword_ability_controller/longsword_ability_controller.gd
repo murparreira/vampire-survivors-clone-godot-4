@@ -8,6 +8,7 @@ var base_damage = 5
 var additional_damage_percent = 1
 var base_wait_time
 var longsword_number = 1
+var number_of_enemies_to_hit
 
 func _ready():
 	base_wait_time = $Timer.wait_time
@@ -30,8 +31,13 @@ func on_timer_timeout():
 		var b_distance = b.global_position.distance_squared_to(player.global_position)
 		return a_distance < b_distance
 	)
-	
-	for i in longsword_number:
+
+	if longsword_number > enemies.size():
+		number_of_enemies_to_hit = enemies.size()
+	else :
+		number_of_enemies_to_hit = longsword_number
+
+	for i in number_of_enemies_to_hit:
 		var longsword_instance = longsword_ability.instantiate() as Node2D
 		var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 		foreground_layer.add_child(longsword_instance)

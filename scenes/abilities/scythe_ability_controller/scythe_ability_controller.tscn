@@ -8,4 +8,5 @@ script = ExtResource("1_05j4r")
 scythe_ability = ExtResource("2_dnctu")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
 autostart = true

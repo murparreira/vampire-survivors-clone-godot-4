@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://djs37ahvm116m"]
+[gd_scene load_steps=4 format=3 uid="uid://djs37ahvm116m"]
 
 [ext_resource type="Script" path="res://scenes/ui/experience_bar.gd" id="1_rcmma"]
+[ext_resource type="Texture2D" uid="uid://0fh2s8tj2vn7" path="res://scenes/ui/kill_count.png" id="2_ncnbm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j5xba"]
 
 [node name="ExperienceBar" type="CanvasLayer"]
 script = ExtResource("1_rcmma")
@@ -19,7 +22,29 @@ size_flags_vertical = 8
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="LevelLabel" type="Label" parent="MarginContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_j5xba")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_ncnbm")
+stretch_mode = 2
+
+[node name="KillCountLabel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "0"
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12

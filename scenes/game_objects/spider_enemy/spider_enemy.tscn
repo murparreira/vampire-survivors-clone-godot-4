@@ -145,7 +145,7 @@ autoplay = "walk"
 health_component = NodePath("../HealthComponent")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_ji2k6")]
-max_health = 25.0
+max_health = 20.0
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("2_cr77u")]
 health_component = NodePath("../HealthComponent")

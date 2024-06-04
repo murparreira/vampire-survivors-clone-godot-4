@@ -2,7 +2,7 @@ extends Node
 
 @export var scythe_ability: PackedScene
 
-var base_damage = 3
+var base_damage = 6
 var additional_damage_percent = 1
 var base_wait_time
 var scythe_number = 1

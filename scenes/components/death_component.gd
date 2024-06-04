@@ -17,3 +17,4 @@ func on_died():
 	global_position = spawn_position
 	$AnimationPlayer.play("default")
 	$RandomStreamPlayer2DComponent.play_random()
+	GameEvents.enemy_defeated.emit(1)

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://komfwpn66pj"]
+
+[ext_resource type="Script" path="res://resources/upgrades/abilty_upgrade.gd" id="1_tpu67"]
+[ext_resource type="Texture2D" uid="uid://bj3kk62urnmgk" path="res://resources/upgrades/cooldown_potion.png" id="2_nur1f"]
+
+[resource]
+script = ExtResource("1_tpu67")
+id = "cooldown_reduction"
+max_quantity = 0
+name = "Cooldown"
+description = "Reduces abilities cooldown by 10%"
+sprite = ExtResource("2_nur1f")

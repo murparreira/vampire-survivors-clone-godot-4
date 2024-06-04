@@ -7,6 +7,7 @@ const MAX_RANGE = 150
 var base_damage = 5
 var additional_damage_percent = 1
 var base_wait_time
+var longsword_number = 1
 
 func _ready():
 	base_wait_time = $Timer.wait_time
@@ -29,22 +30,27 @@ func on_timer_timeout():
 		var b_distance = b.global_position.distance_squared_to(player.global_position)
 		return a_distance < b_distance
 	)
-	var longsword_instance = longsword_ability.instantiate() as Node2D
-	var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
-	foreground_layer.add_child(longsword_instance)
-	longsword_instance.hitbox_component.damage = ceil(base_damage * additional_damage_percent)
-	longsword_instance.global_position = enemies[0].global_position
-	longsword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU)) * 4
+	
+	for i in longsword_number:
+		var longsword_instance = longsword_ability.instantiate() as Node2D
+		var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
+		foreground_layer.add_child(longsword_instance)
+		longsword_instance.hitbox_component.damage = base_damage * additional_damage_percent
+		longsword_instance.global_position = enemies[i - 1].global_position
+		longsword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU)) * 4
 
-	var enemy_direction = enemies[0].global_position - longsword_instance.global_position
-	longsword_instance.rotation = enemy_direction.angle()
+		var enemy_direction = enemies[0].global_position - longsword_instance.global_position
+		longsword_instance.rotation = enemy_direction.angle()
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
-	if upgrade.id == "longsword_rate":
-		var percent_reduction = current_upgrades["longsword_rate"]["quantity"] * 0.2
+	if upgrade.id == "cooldown_reduction":
+		var percent_reduction = current_upgrades["cooldown_reduction"]["quantity"] * 0.1
 		$Timer.wait_time = base_wait_time * (1 - percent_reduction)
 		$Timer.start()
 		print("Longsword wait time decreased. Now: ", $Timer.wait_time)
-	elif upgrade.id == "longsword_damage":
-		additional_damage_percent = 1 + (current_upgrades["longsword_damage"]["quantity"] * .3)
-		print("Longsword damage increased. Now: ", ceil(base_damage * additional_damage_percent))
+	elif upgrade.id == "buff_damage":
+		additional_damage_percent = 1 + (current_upgrades["buff_damage"]["quantity"] * .1)
+		print("Longsword damage increased. Now: ", base_damage * additional_damage_percent)
+	elif upgrade.id == "ability_quantity":
+		longsword_number += 1
+		print("Number of Longswords increased. Now: ", longsword_number)

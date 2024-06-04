@@ -13,7 +13,12 @@ config_version=5
 config/name="Arena"
 run/main_scene="res://scenes/ui/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0.247059, 0.14902, 0.192157, 1)
+boot_splash/image="res://scenes/game_objects/player/player.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+config/icon="res://scenes/game_objects/player/player.png"
+config/windows_native_icon="res://player.ico"
 
 [autoload]
 
@@ -25,9 +30,11 @@ ScreenTransition="*res://scenes/autoload/screen_transition.tscn"
 
 window/size/viewport_width=630
 window/size/viewport_height=360
+window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
+window/size/mode.debug=0
 
 [gui]
 
@@ -82,4 +89,6 @@ pause={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 2d/layer_4="EnemyCollision"

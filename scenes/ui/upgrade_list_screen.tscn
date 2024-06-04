@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3 uid="uid://xcmcjx1qnute"]
+
+[ext_resource type="Texture2D" uid="uid://othdwyisoide" path="res://scenes/abilities/longsword_ability/longsword.png" id="1_44yhf"]
+[ext_resource type="Script" path="res://scenes/ui/upgrade_list_screen.gd" id="1_v3vxh"]
+[ext_resource type="PackedScene" uid="uid://bawap5tgrq4un" path="res://scenes/managers/upgrade_manager.tscn" id="2_bkixw"]
+[ext_resource type="Texture2D" uid="uid://tt2ny8ux8v54" path="res://scenes/abilities/giantaxe_ability/giantaxe.png" id="2_yf62e"]
+[ext_resource type="Texture2D" uid="uid://vxlscq8fy1by" path="res://scenes/abilities/scythe_ability/sctyhe.png" id="3_wp57b"]
+[ext_resource type="Texture2D" uid="uid://danf58kuhwikd" path="res://resources/upgrades/buff_potion.png" id="4_er3ld"]
+[ext_resource type="Texture2D" uid="uid://bj3kk62urnmgk" path="res://resources/upgrades/cooldown_potion.png" id="5_kjh7h"]
+[ext_resource type="Texture2D" uid="uid://c6qihly08jkn3" path="res://resources/upgrades/quantity_potion.png" id="6_58ttg"]
+[ext_resource type="Texture2D" uid="uid://dciel4txgpha2" path="res://resources/upgrades/speed_potion.png" id="7_u3avf"]
+
+[node name="UpgradeListScreen" type="CanvasLayer"]
+script = ExtResource("1_v3vxh")
+upgrade_manager = ExtResource("2_bkixw")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Longsword" type="TextureRect" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_44yhf")
+
+[node name="LongswordQuantity" type="Label" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "x1"
+
+[node name="Giantaxe" type="TextureRect" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("2_yf62e")
+
+[node name="GiantaxeQuantity" type="Label" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "x1"
+
+[node name="Scythe" type="TextureRect" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("3_wp57b")
+
+[node name="ScytheQuantity" type="Label" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "x1"
+
+[node name="BuffPotion" type="TextureRect" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("4_er3ld")
+
+[node name="BuffPotionQuantity" type="Label" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "x1"
+
+[node name="CooldownPotion" type="TextureRect" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("5_kjh7h")
+
+[node name="CooldownPotionQuantity" type="Label" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "x1"
+
+[node name="QuantityPotion" type="TextureRect" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("6_58ttg")
+
+[node name="QuantityPotionQuantity" type="Label" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "x1"
+
+[node name="SpeedPotion" type="TextureRect" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("7_u3avf")
+
+[node name="SpeedPotionQuantity" type="Label" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "x1"

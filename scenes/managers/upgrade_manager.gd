@@ -6,6 +6,7 @@ extends Node
 var current_upgrades = {}
 var upgrade_pool: WeightedTable = WeightedTable.new()
 
+var upgrade_longsword = preload("res://resources/upgrades/longsword.tres")
 var upgrade_giantaxe = preload("res://resources/upgrades/giantaxe.tres")
 var upgrade_scythe = preload("res://resources/upgrades/scythe.tres")
 var upgrade_ability_quantity = preload("res://resources/upgrades/ability_quantity.tres")
@@ -14,6 +15,7 @@ var upgrade_cooldown_reduction = preload("res://resources/upgrades/cooldown_redu
 var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
 
 func _ready():
+	upgrade_pool.add_item(upgrade_longsword, 10)
 	upgrade_pool.add_item(upgrade_giantaxe, 10)
 	upgrade_pool.add_item(upgrade_scythe, 10)
 	upgrade_pool.add_item(upgrade_ability_quantity, 10)
@@ -21,11 +23,6 @@ func _ready():
 	upgrade_pool.add_item(upgrade_cooldown_reduction, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 5)
 	experience_manager.level_up.connect(on_level_up)
-
-func update_upgrade_poll(chosen_upgrade: AbilityUpgrade):
-	pass
-	#if chosen_upgrade.id == upgrade_giantaxe.id && current_upgrades[upgrade_giantaxe.id]["quantity"] == 1:
-		#upgrade_pool.add_item(upgrade_giantaxe_damage, 10)
 
 func apply_upgrade(upgrade: ):
 	var has_upgrade = current_upgrades.has(upgrade.id)
@@ -42,8 +39,7 @@ func apply_upgrade(upgrade: ):
 		var current_quantity = current_upgrades[upgrade.id]["quantity"]
 		if current_quantity == upgrade.max_quantity:
 			upgrade_pool.remove_item(upgrade)
-	
-	update_upgrade_poll(upgrade)
+
 	GameEvents.emit_ability_upgrade_added(upgrade, current_upgrades)
 
 func pick_upgrades():

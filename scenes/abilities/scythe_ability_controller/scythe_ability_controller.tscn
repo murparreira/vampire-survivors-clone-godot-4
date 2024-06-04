@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dguu7h1uke7eo"]
+
+[ext_resource type="Script" path="res://scenes/abilities/scythe_ability_controller/scythe_ability_controller.gd" id="1_05j4r"]
+[ext_resource type="PackedScene" uid="uid://bjaqp0c8cuvgv" path="res://scenes/abilities/scythe_ability/scythe_ability.tscn" id="2_dnctu"]
+
+[node name="ScytheAbilityController" type="Node"]
+script = ExtResource("1_05j4r")
+scythe_ability = ExtResource("2_dnctu")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

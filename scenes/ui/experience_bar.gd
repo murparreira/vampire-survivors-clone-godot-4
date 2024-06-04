@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var level_label = %LevelLabel
 
 func _ready():
+	progress_bar.value = 0
 	experience_manager.experience_updated.connect(on_experience_updated)
 	experience_manager.level_up.connect(on_level_up)
 

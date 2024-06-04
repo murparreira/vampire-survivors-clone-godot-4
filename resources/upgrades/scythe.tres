@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://dvhkw7qjshqlf"]
+
+[ext_resource type="PackedScene" uid="uid://dguu7h1uke7eo" path="res://scenes/abilities/scythe_ability_controller/scythe_ability_controller.tscn" id="1_1usm0"]
+[ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="1_6c1vs"]
+[ext_resource type="Texture2D" uid="uid://vxlscq8fy1by" path="res://scenes/abilities/scythe_ability/sctyhe.png" id="3_ngyub"]
+
+[resource]
+script = ExtResource("1_6c1vs")
+ability_controller_scene = ExtResource("1_1usm0")
+id = "scythe"
+max_quantity = 5
+name = "Scythe"
+description = "Throws a spinning sctyhe in a random direction"
+sprite = ExtResource("3_ngyub")

@@ -8,5 +8,5 @@ script = ExtResource("1_8gcdp")
 id = "ability_quantity"
 max_quantity = 0
 name = "Increase Quantity"
-description = "Increases abilities spawn quantity by 1"
+description = "Increases equipped abilities spawn quantity by 1"
 sprite = ExtResource("2_o22ev")

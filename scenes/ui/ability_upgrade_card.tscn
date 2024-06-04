@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dycrbn4mr3aco"]
+[gd_scene load_steps=23 format=3 uid="uid://dycrbn4mr3aco"]
 
 [ext_resource type="Script" path="res://scenes/ui/ability_upgrade_card.gd" id="1_btsk5"]
 [ext_resource type="PackedScene" uid="uid://ctsjniotv0ft7" path="res://scenes/components/random_stream_player_component.tscn" id="2_tc0oj"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dm5yc4ehyasle" path="res://assets/audio/switch8.ogg" id="10_e2lfn"]
 [ext_resource type="AudioStream" uid="uid://chub78n2e8fju" path="res://assets/audio/switch9.ogg" id="11_2djne"]
 [ext_resource type="AudioStream" uid="uid://d2nldypowpqjm" path="res://assets/audio/switch10.ogg" id="12_de7bi"]
+[ext_resource type="Texture2D" uid="uid://danf58kuhwikd" path="res://resources/upgrades/buff_potion.png" id="13_q5fqy"]
 
 [sub_resource type="Animation" id="Animation_hhgm4"]
 length = 0.001
@@ -262,17 +263,19 @@ theme_override_styles/separator = SubResource("StyleBoxLine_tckoc")
 
 [node name="DescriptionLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(120, 100)
+custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
 theme_override_constants/outline_size = 11
 theme_override_constants/line_spacing = 3
 theme_override_font_sizes/font_size = 16
-text = "Increase longsword attack rate by 20%"
+text = "Increase longsword attack rate by 20% and apply buffs to the target preset"
 autowrap_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-position = Vector2(57, 111)
-rotation = -0.523599
-scale = Vector2(3, 3)
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("13_q5fqy")

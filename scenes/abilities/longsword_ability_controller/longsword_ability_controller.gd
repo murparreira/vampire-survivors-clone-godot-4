@@ -36,10 +36,10 @@ func on_timer_timeout():
 		var foreground_layer = get_tree().get_first_node_in_group("foreground_layer")
 		foreground_layer.add_child(longsword_instance)
 		longsword_instance.hitbox_component.damage = base_damage * additional_damage_percent
-		longsword_instance.global_position = enemies[i - 1].global_position
+		longsword_instance.global_position = enemies[i].global_position
 		longsword_instance.global_position += Vector2.RIGHT.rotated(randf_range(0, TAU)) * 4
 
-		var enemy_direction = enemies[0].global_position - longsword_instance.global_position
+		var enemy_direction = enemies[i].global_position - longsword_instance.global_position
 		longsword_instance.rotation = enemy_direction.angle()
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):

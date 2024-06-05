@@ -12,6 +12,9 @@ func accelerate_to_player():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
 	if player == null:
 		return
+	var distance_to_player = owner_node2d.global_position.distance_to(player.global_position)
+	if distance_to_player > 500:
+		despawn_enemy(owner_node2d)
 	var direction = (player.global_position - owner_node2d.global_position).normalized()
 	accelerate_in_direction(direction)
 
@@ -26,3 +29,7 @@ func move(character_body: CharacterBody2D):
 	character_body.velocity = velocity
 	character_body.move_and_slide()
 	velocity = character_body.velocity
+	
+func despawn_enemy(owner_node2d: Node2D):
+	owner_node2d.queue_free()
+	GameEvents.enemy_despawned.emit(1)

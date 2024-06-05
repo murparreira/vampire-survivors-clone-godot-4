@@ -18,3 +18,4 @@ func on_died():
 	$AnimationPlayer.play("default")
 	$RandomStreamPlayer2DComponent.play_random()
 	GameEvents.enemy_defeated.emit(1)
+	GameEvents.enemy_despawned.emit(1)

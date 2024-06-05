@@ -104,7 +104,7 @@ autoplay = "walk"
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_qmbjd")]
 health_component = NodePath("../HealthComponent")
-drop_chance = 0.35
+drop_chance = 1.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_esr0b")]
 
@@ -113,6 +113,7 @@ health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("5_8smoy")]
+max_speed = 35
 
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_562hl")]
 health_component = NodePath("../HealthComponent")

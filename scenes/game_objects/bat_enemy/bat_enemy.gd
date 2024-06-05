@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var visuals = $Visuals
 @onready var velocity_component = $VelocityComponent
 
+const TYPE = 'bat'
+
 func _ready():
 	$HurtboxComponent.hit.connect(on_hit)
 

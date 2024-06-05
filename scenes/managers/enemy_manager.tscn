@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://byuhio647n5g1"]
+[gd_scene load_steps=6 format=3 uid="uid://byuhio647n5g1"]
 
 [ext_resource type="Script" path="res://scenes/managers/enemy_manager.gd" id="1_k1pfv"]
 [ext_resource type="PackedScene" uid="uid://c03x1jaub6252" path="res://scenes/game_objects/basic_enemy/basic_enemy.tscn" id="2_snpmt"]
 [ext_resource type="PackedScene" uid="uid://bo5yanqoe76rd" path="res://scenes/game_objects/spider_enemy/spider_enemy.tscn" id="3_3dicn"]
 [ext_resource type="PackedScene" uid="uid://b2m6fttyv3627" path="res://scenes/game_objects/bat_enemy/bat_enemy.tscn" id="4_rabie"]
+[ext_resource type="PackedScene" uid="uid://ddr027dj6t7ec" path="res://scenes/game_objects/crab_enemy/crab_enemy.tscn" id="5_r1max"]
 
 [node name="EnemyManager" type="Node"]
 script = ExtResource("1_k1pfv")
 basic_enemy_scene = ExtResource("2_snpmt")
 spider_enemy_scene = ExtResource("3_3dicn")
 bat_enemy_scene = ExtResource("4_rabie")
+crab_enemy_scene = ExtResource("5_r1max")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

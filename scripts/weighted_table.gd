@@ -4,8 +4,23 @@ var items: Array[Dictionary] = []
 var weight_sum = 0
 
 func add_item(item, weight: int):
-	items.append({"item": item, "weight": weight})
-	weight_sum += weight
+	var path = item.get_path()
+	var type = path.right(-path.rfind("/") - 1).left(-5)
+	var item_found = false
+
+	for i in range(items.size()):
+		if items[i]["type"] == type:
+			weight_sum -= items[i]["weight"]
+			items[i]["weight"] = weight
+			weight_sum += weight
+			item_found = true
+			break
+
+	if not item_found:
+		items.append({"item": item, "type": type, "weight": weight})
+		weight_sum += weight
+
+	print("Weight table updated: ", items)
 	
 func pick_item(exclude: Array = []):
 	var adjusted_items: Array[Dictionary] = items

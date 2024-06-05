@@ -3,6 +3,7 @@ extends Node
 @export var basic_enemy_scene: PackedScene
 @export var spider_enemy_scene: PackedScene
 @export var bat_enemy_scene: PackedScene
+@export var crab_enemy_scene: PackedScene
 
 @export var arena_time_manager: Node
 
@@ -15,6 +16,7 @@ var enemy_table = WeightedTable.new()
 
 func _ready():
 	enemy_table.add_item(basic_enemy_scene, 10)
+	enemy_table.add_item(crab_enemy_scene, 2)
 	base_spawn_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
@@ -71,5 +73,7 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	print("Arena difficulty increased, now it is level: ", arena_difficulty)
 	if arena_difficulty == 5:
 		enemy_table.add_item(spider_enemy_scene, 15)
+		enemy_table.add_item(crab_enemy_scene, 4)
 	if arena_difficulty == 10:
 		enemy_table.add_item(bat_enemy_scene, 10)
+		enemy_table.add_item(crab_enemy_scene, 6)

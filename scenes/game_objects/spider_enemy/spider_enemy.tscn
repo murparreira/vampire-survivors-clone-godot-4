@@ -143,6 +143,7 @@ autoplay = "walk"
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_rvoun")]
 health_component = NodePath("../HealthComponent")
+drop_chance = 1.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_ji2k6")]
 max_health = 20.0

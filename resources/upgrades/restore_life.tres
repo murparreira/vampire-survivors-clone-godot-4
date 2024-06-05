@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://dnihghg26ubcg"]
+
+[ext_resource type="Script" path="res://resources/upgrades/abilty_upgrade.gd" id="1_y6ds2"]
+[ext_resource type="Texture2D" uid="uid://c0tnb5rofjhk8" path="res://resources/upgrades/heart_potion.png" id="2_oqjlw"]
+
+[resource]
+script = ExtResource("1_y6ds2")
+id = "restore_life"
+max_quantity = 0
+name = "Restore Life"
+description = "Drink this to restore half of your max HP"
+sprite = ExtResource("2_oqjlw")

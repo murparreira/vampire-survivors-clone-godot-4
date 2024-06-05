@@ -112,7 +112,7 @@ health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Visuals/Sprite2D")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("5_2a21h")]
-max_speed = 30
+max_speed = 20
 acceleration = 200.0
 
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_aohoy")]

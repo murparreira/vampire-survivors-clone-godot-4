@@ -13,6 +13,7 @@ var upgrade_ability_quantity = preload("res://resources/upgrades/ability_quantit
 var upgrade_buff_damage = preload("res://resources/upgrades/buff_damage.tres")
 var upgrade_cooldown_reduction = preload("res://resources/upgrades/cooldown_reduction.tres")
 var upgrade_player_speed = preload("res://resources/upgrades/player_speed.tres")
+var upgrade_restore_life = preload("res://resources/upgrades/restore_life.tres")
 
 func _ready():
 	upgrade_pool.add_item(upgrade_longsword, 10)
@@ -22,6 +23,7 @@ func _ready():
 	upgrade_pool.add_item(upgrade_buff_damage, 10)
 	upgrade_pool.add_item(upgrade_cooldown_reduction, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 5)
+	upgrade_pool.add_item(upgrade_restore_life, 5)
 	experience_manager.level_up.connect(on_level_up)
 
 func apply_upgrade(upgrade: ):

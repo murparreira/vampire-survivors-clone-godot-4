@@ -12,6 +12,7 @@ extends Node
 const SPAWN_RADIUS = 330
 
 var base_spawn_time = 0
+var number_spawned_enemies = 1
 var enemy_table = WeightedTable.new()
 
 func _ready():
@@ -60,11 +61,12 @@ func on_timer_timeout():
 	if player == null:
 		return
 
-	var enemy_scene = enemy_table.pick_item()
-	var enemy = enemy_scene.instantiate() as Node2D
-	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
-	entities_layer.add_child(enemy)
-	enemy.global_position = get_spawn_position()
+	for i in number_spawned_enemies:
+		var enemy_scene = enemy_table.pick_item()
+		var enemy = enemy_scene.instantiate() as Node2D
+		var entities_layer = get_tree().get_first_node_in_group("entities_layer")
+		entities_layer.add_child(enemy)
+		enemy.global_position = get_spawn_position()
 
 func on_arena_difficulty_increased(arena_difficulty: int):
 	var time_off = (0.1 / 12) * arena_difficulty
@@ -74,6 +76,10 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	if arena_difficulty == 5:
 		enemy_table.add_item(spider_enemy_scene, 15)
 		enemy_table.add_item(crab_enemy_scene, 4)
-	if arena_difficulty == 10:
+		number_spawned_enemies += 1
+	elif arena_difficulty == 10:
 		enemy_table.add_item(bat_enemy_scene, 10)
 		enemy_table.add_item(crab_enemy_scene, 6)
+		number_spawned_enemies += 1
+	elif arena_difficulty == 15:
+		number_spawned_enemies += 1

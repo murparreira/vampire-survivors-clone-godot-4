@@ -72,3 +72,11 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades:
 			abilities.add_child(ability_upgrade.ability_controller_scene.instantiate())
 	elif ability_upgrade.id == "player_speed":
 		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"] * .1)
+		print("Got a speed upgrade, now your speed is ", velocity_component.max_speed)
+	elif ability_upgrade.id == "restore_life":
+		var health_to_restore = health_component.max_health/2 + health_component.current_health
+		if health_to_restore < health_component.max_health:
+			health_component.current_health = health_to_restore
+		else:
+			health_component.current_health = health_component.max_health
+		update_health_display()

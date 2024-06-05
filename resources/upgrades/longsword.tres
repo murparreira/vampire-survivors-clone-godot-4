@@ -10,5 +10,5 @@ ability_controller_scene = ExtResource("1_2rs67")
 id = "longsword"
 max_quantity = 5
 name = "Longsword"
-description = "Spawn a Longsword on the closes enemy"
+description = "Spawn a Longsword on the closest enemy"
 sprite = ExtResource("3_4purg")

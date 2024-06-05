@@ -249,7 +249,7 @@ theme_type_variation = &"AlternatePanelContainer"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
-theme_override_constants/outline_size = 11
+theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 18
 text = "Longsword Rate
 "
@@ -266,10 +266,10 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 50)
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.247059, 0.14902, 0.192157, 1)
-theme_override_constants/outline_size = 11
+theme_override_constants/outline_size = 8
 theme_override_constants/line_spacing = 3
 theme_override_font_sizes/font_size = 16
-text = "Increase longsword attack rate by 20% and apply buffs to the target preset"
+text = "Throws spinning  scythe in the direction the player is facing"
 autowrap_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]

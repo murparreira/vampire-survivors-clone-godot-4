@@ -7,6 +7,8 @@ extends CanvasLayer
 @onready var giantaxe_quantity = %GiantaxeQuantity
 @onready var scythe = %Scythe
 @onready var scythe_quantity = %ScytheQuantity
+@onready var anvil = %Anvil
+@onready var anvil_quantity = %AnvilQuantity
 @onready var buff_potion = %BuffPotion
 @onready var buff_potion_quantity = %BuffPotionQuantity
 @onready var cooldown_potion = %CooldownPotion
@@ -20,6 +22,7 @@ func _ready():
 	longsword_quantity.text = "x0"
 	giantaxe_quantity.text = "x0"
 	scythe_quantity.text = "x0"
+	anvil_quantity.text = "x0"
 	buff_potion_quantity.text = "x0"
 	cooldown_potion_quantity.text = "x0"
 	quantity_potion_quantity.text = "x0"
@@ -37,6 +40,8 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 				giantaxe_quantity.text = "x" + str_quantity
 			"scythe":
 				scythe_quantity.text = "x" + str_quantity
+			"anvil":
+				anvil_quantity.text = "x" + str_quantity
 			"buff_damage":
 				buff_potion_quantity.text = "x" + str_quantity
 			"cooldown_reduction":

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://bm0uwa6eccdf2"]
+
+[ext_resource type="PackedScene" uid="uid://b5w174554jah7" path="res://scenes/abilities/anvil_ability_controller/anvil_ability_controller.tscn" id="1_qforn"]
+[ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="2_ic02f"]
+[ext_resource type="Texture2D" uid="uid://bgeip68mmlvgc" path="res://scenes/abilities/anvil_ability/anvil.png" id="2_r7i0k"]
+
+[resource]
+script = ExtResource("2_ic02f")
+ability_controller_scene = ExtResource("1_qforn")
+id = "anvil"
+max_quantity = 5
+name = "Anvil"
+description = "Drops Anvils from heaven"
+sprite = ExtResource("2_r7i0k")

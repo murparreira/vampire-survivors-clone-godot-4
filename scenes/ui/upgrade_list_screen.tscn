@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://xcmcjx1qnute"]
+[gd_scene load_steps=11 format=3 uid="uid://xcmcjx1qnute"]
 
 [ext_resource type="Texture2D" uid="uid://othdwyisoide" path="res://scenes/abilities/longsword_ability/longsword.png" id="1_44yhf"]
 [ext_resource type="Script" path="res://scenes/ui/upgrade_list_screen.gd" id="1_v3vxh"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://danf58kuhwikd" path="res://resources/upgrades/buff_potion.png" id="4_er3ld"]
 [ext_resource type="Texture2D" uid="uid://bj3kk62urnmgk" path="res://resources/upgrades/cooldown_potion.png" id="5_kjh7h"]
 [ext_resource type="Texture2D" uid="uid://c6qihly08jkn3" path="res://resources/upgrades/quantity_potion.png" id="6_58ttg"]
+[ext_resource type="Texture2D" uid="uid://bgeip68mmlvgc" path="res://scenes/abilities/anvil_ability/anvil.png" id="6_ji3lb"]
 [ext_resource type="Texture2D" uid="uid://dciel4txgpha2" path="res://resources/upgrades/speed_potion.png" id="7_u3avf"]
 
 [node name="UpgradeListScreen" type="CanvasLayer"]
@@ -20,6 +21,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -53,6 +56,17 @@ layout_mode = 2
 texture = ExtResource("3_wp57b")
 
 [node name="ScytheQuantity" type="Label" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "x1"
+
+[node name="Anvil" type="TextureRect" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("6_ji3lb")
+
+[node name="AnvilQuantity" type="Label" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 14

@@ -27,7 +27,7 @@ func _ready():
 	upgrade_pool.add_item(upgrade_cooldown_reduction, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 5)
 	upgrade_pool.add_item(upgrade_restore_life, 5)
-	upgrade_pool.add_item(upgrade_debuff_enemies, 200)
+	upgrade_pool.add_item(upgrade_debuff_enemies, 5)
 	experience_manager.level_up.connect(on_level_up)
 
 func apply_upgrade(upgrade: ):

@@ -155,7 +155,6 @@ visible = false
 shape = SubResource("CircleShape2D_iod47")
 
 [node name="CollisionArea2D" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -170,7 +169,6 @@ texture = ExtResource("2_8b4pu")
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_lxy38")
 

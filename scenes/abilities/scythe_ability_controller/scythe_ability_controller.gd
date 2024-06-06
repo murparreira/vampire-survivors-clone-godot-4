@@ -22,20 +22,20 @@ func on_timer_timeout():
 	if foreground_layer == null:
 		return
 	
-	for i in scythe_number:
+	var scythes = min(scythe_number, 5) + 3
+	for i in scythes:
 		var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
-		for j in 4:
-			var scythe_instance = scythe_ability.instantiate() as Node2D
-			if scythe_instance == null:
-				return
-			foreground_layer.add_child(scythe_instance)
-			
-			scythe_instance.random_direction = random_direction
-			scythe_instance.global_position = player.global_position + (random_direction * 10)
-			scythe_instance.rotation = atan2(random_direction.y, random_direction.x) + 90
-			scythe_instance.hitbox_component.damage = (base_damage + additional_damage_from_upgrades) * additional_damage_percent
-			
-			random_direction = random_direction.rotated(deg_to_rad(90))
+		var scythe_instance = scythe_ability.instantiate() as Node2D
+		if scythe_instance == null:
+			return
+		foreground_layer.add_child(scythe_instance)
+
+		scythe_instance.random_direction = random_direction
+		scythe_instance.global_position = player.global_position + (random_direction * 10)
+		scythe_instance.rotation = atan2(random_direction.y, random_direction.x) + 90
+		scythe_instance.hitbox_component.damage = (base_damage + additional_damage_from_upgrades) * additional_damage_percent
+
+		random_direction = random_direction.rotated(deg_to_rad(360/scythes))
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade.id == "scythe":

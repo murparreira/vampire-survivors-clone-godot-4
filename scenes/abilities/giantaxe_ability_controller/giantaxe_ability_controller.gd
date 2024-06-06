@@ -22,7 +22,7 @@ func on_timer_timeout():
 	if foreground_layer == null:
 		return
 	
-	for i in giantaxe_number:
+	for i in min(giantaxe_number, 5):
 		var giantaxe_instance = giantaxe_ability.instantiate() as Node2D
 		if giantaxe_instance == null:
 			return

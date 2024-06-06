@@ -36,7 +36,7 @@ func on_timer_timeout():
 	if longsword_number > enemies.size():
 		number_of_enemies_to_hit = enemies.size()
 	else :
-		number_of_enemies_to_hit = longsword_number
+		number_of_enemies_to_hit = min(longsword_number, 5)
 
 	for i in number_of_enemies_to_hit:
 		var longsword_instance = longsword_ability.instantiate() as Node2D

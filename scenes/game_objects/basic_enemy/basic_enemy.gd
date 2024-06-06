@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var visuals = $Visuals
 @onready var velocity_component = $VelocityComponent
+@onready var damage_component = $DamageComponent
 
 const TYPE = 'basic'
 

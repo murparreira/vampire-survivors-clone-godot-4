@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bo5yanqoe76rd"]
+[gd_scene load_steps=23 format=3 uid="uid://bo5yanqoe76rd"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/spider_enemy/spider_enemy.gd" id="1_cqf0c"]
 [ext_resource type="Texture2D" uid="uid://bi0thyfri7hhr" path="res://scenes/game_objects/spider_enemy/spider_enemy.png" id="1_ircus"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://cpk5fvgl453mo" path="res://assets/audio/footstep_carpet_002.ogg" id="11_fy6j8"]
 [ext_resource type="AudioStream" uid="uid://dotj651vwgdh7" path="res://assets/audio/footstep_carpet_003.ogg" id="12_beb8o"]
 [ext_resource type="AudioStream" uid="uid://bsad3wyudntja" path="res://assets/audio/footstep_carpet_004.ogg" id="13_lfh7j"]
+[ext_resource type="PackedScene" uid="uid://bpot2gx8sfwsm" path="res://scenes/components/damage_component.tscn" id="16_4bluo"]
 
 [sub_resource type="Animation" id="Animation_umyh1"]
 length = 0.001
@@ -182,3 +183,5 @@ shape = SubResource("CircleShape2D_y7pug")
 visible = false
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_pfvo2")
+
+[node name="DamageComponent" parent="." instance=ExtResource("16_4bluo")]

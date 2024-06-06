@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://ddr027dj6t7ec"]
+[gd_scene load_steps=23 format=3 uid="uid://ddr027dj6t7ec"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/crab_enemy/crab_enemy.gd" id="1_ffr86"]
 [ext_resource type="PackedScene" uid="uid://derxncbuykfl5" path="res://scenes/components/vial_drop_component.tscn" id="2_x2nit"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bsad3wyudntja" path="res://assets/audio/footstep_carpet_004.ogg" id="13_lmtmb"]
 [ext_resource type="Texture2D" uid="uid://8n42sbejr83c" path="res://scenes/game_objects/crab_enemy/crab_enemy.png" id="14_26mvd"]
 [ext_resource type="PackedScene" uid="uid://du7chqaxrvnvt" path="res://scenes/components/hurtbox_component.tscn" id="15_5yjr8"]
+[ext_resource type="PackedScene" uid="uid://bpot2gx8sfwsm" path="res://scenes/components/damage_component.tscn" id="16_xriss"]
 
 [sub_resource type="Animation" id="Animation_umyh1"]
 length = 0.001
@@ -106,6 +107,9 @@ drop_chance = 1.0
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_wt0ix")]
 max_health = 40.0
+
+[node name="DamageComponent" parent="." instance=ExtResource("16_xriss")]
+damage = 5
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_pj8hn")]
 health_component = NodePath("../HealthComponent")

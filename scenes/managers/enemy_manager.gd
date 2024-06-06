@@ -5,6 +5,7 @@ extends Node
 @export var bat_enemy_scene: PackedScene
 @export var crab_enemy_scene: PackedScene
 
+@export var upgrade_manager: UpgradeManager
 @export var arena_time_manager: Node
 
 @onready var timer = $Timer
@@ -20,6 +21,7 @@ func _ready():
 	base_spawn_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
+	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 func get_spawn_position():
 	var player = get_tree().get_first_node_in_group("player") as Node2D
@@ -66,6 +68,8 @@ func on_timer_timeout():
 		var entities_layer = get_tree().get_first_node_in_group("entities_layer")
 		entities_layer.add_child(enemy)
 		enemy.global_position = get_spawn_position()
+		if upgrade_manager.current_upgrades.has("debuff_enemies"):
+			enemy.damage_component.decrease_damage(upgrade_manager.current_upgrades["debuff_enemies"]["quantity"])
 		GameEvents.enemy_spawned.emit(1)
 
 func on_arena_difficulty_increased(arena_difficulty: int):
@@ -87,3 +91,9 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	elif arena_difficulty == 20:
 		enemy_table.add_item(crab_enemy_scene, 6)
 		number_spawned_enemies += 1
+
+func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
+	if upgrade.id == "debuff_enemies":
+		var enemies = get_tree().get_nodes_in_group("enemy")
+		for enemy in enemies:
+			enemy.damage_component.decrease_damage(1)

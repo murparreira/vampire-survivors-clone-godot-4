@@ -41,25 +41,27 @@ func get_movement_vector():
 	
 	return Vector2(x_movement, y_movement)
 
-func check_deal_damage():
+func check_deal_damage(damage_amount: float):
 	if number_colliding_bodies == 0 || !damage_interval_timer.is_stopped():
 		return
-	health_component.damage(3)
+	health_component.damage(damage_amount)
 	damage_interval_timer.start()
+	print("Took a hit, enemy inflicted " + str(damage_amount) + " damage")
 	print("Took a hit, HP is now: ", health_component.current_health)
-	
+
 func update_health_display():
 	health_bar.value = health_component.get_health_percentage()
 
 func on_body_entered(other_body: Node2D):
 	number_colliding_bodies += 1
-	check_deal_damage()
+	check_deal_damage(other_body.damage_component.damage)
 	
 func on_body_exited(other_body: Node2D):
 	number_colliding_bodies -= 1
 
 func on_damage_interval_timer_timeout():
-	check_deal_damage()
+	#check_deal_damage()
+	pass
 
 func on_health_changed():
 	update_health_display()

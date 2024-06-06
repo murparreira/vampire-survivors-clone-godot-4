@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AbilityUpgrade" load_steps=3 format=3 uid="uid://7l2s5vpglmv2"]
+
+[ext_resource type="Script" path="res://resources/upgrades/abilty_upgrade.gd" id="1_dsr7n"]
+[ext_resource type="Texture2D" uid="uid://vlpx5x8h2m2i" path="res://resources/upgrades/debuff_enemies.png" id="2_f1tug"]
+
+[resource]
+script = ExtResource("1_dsr7n")
+id = "debuff_enemies"
+max_quantity = 0
+name = "Debuff Enemies"
+description = "Decreases all enemies damage by 1"
+sprite = ExtResource("2_f1tug")

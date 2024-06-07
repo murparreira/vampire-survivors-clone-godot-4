@@ -29,7 +29,7 @@ func _ready():
 	upgrade_pool.add_item(upgrade_cooldown_reduction, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 5)
 	upgrade_pool.add_item(upgrade_restore_life, 5)
-	upgrade_pool.add_item(upgrade_debuff_enemies, 5)
+	upgrade_pool.add_item(upgrade_debuff_enemies, 999)
 	experience_manager.level_up.connect(on_level_up)
 
 func apply_upgrade(upgrade: ):
@@ -41,7 +41,7 @@ func apply_upgrade(upgrade: ):
 		}
 	else:
 		current_upgrades[upgrade.id]["quantity"] +=  1
-	print("Acquire a new " + upgrade.id + " upgrade. Upgrades are now: ", current_upgrades)
+	print("Acquire a new " + upgrade.id + " upgrade")
 	
 	if upgrade.max_quantity > 0:
 		var current_quantity = current_upgrades[upgrade.id]["quantity"]

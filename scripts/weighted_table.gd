@@ -19,8 +19,6 @@ func add_item(item, weight: int):
 	if not item_found:
 		items.append({"item": item, "type": type, "weight": weight})
 		weight_sum += weight
-
-	print("Weight table updated: ", items)
 	
 func pick_item(exclude: Array = []):
 	var adjusted_items: Array[Dictionary] = items

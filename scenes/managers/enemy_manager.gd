@@ -20,7 +20,7 @@ var number_spawned_enemies = 1
 var enemy_table = WeightedTable.new()
 
 func _ready():
-	enemy_table.add_item(basic_enemy_scene, 10)
+	enemy_table.add_item(basic_enemy_scene, 20)
 	base_spawn_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
@@ -70,7 +70,7 @@ func spawn_enemy(enemy: Node2D):
 	entities_layer.add_child(enemy)
 	enemy.global_position = get_spawn_position()
 	if upgrade_manager.current_upgrades.has("debuff_enemies"):
-		enemy.damage_component.decrease_damage(upgrade_manager.current_upgrades["debuff_enemies"]["quantity"])
+		enemy.damage_component.decrease_damage_by_percentage(upgrade_manager.current_upgrades["debuff_enemies"]["quantity"] * .25)
 		GameEvents.enemy_spawned.emit(1)
 
 func set_boss_attributes(boss_enemy: Node2D):
@@ -104,20 +104,20 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	var time_off = (0.1 / 12) * arena_difficulty
 	time_off = max(time_off, 0.7)
 	timer.wait_time = base_spawn_time - time_off
-	print("Arena difficulty increased, now it is level: ", arena_difficulty)
 	if arena_difficulty == 5:
 		enemy_table.add_item(spider_enemy_scene, 12)
 		number_spawned_enemies += 1
 	elif arena_difficulty == 10:
+		enemy_table.add_item(bat_enemy_scene, 6)
+		enemy_table.add_item(crab_enemy_scene, 1)
+		number_spawned_enemies += 1
+	elif arena_difficulty == 15:
+		enemy_table.add_item(spider_enemy_scene, 16)
 		enemy_table.add_item(bat_enemy_scene, 10)
 		enemy_table.add_item(crab_enemy_scene, 2)
 		number_spawned_enemies += 1
-	elif arena_difficulty == 15:
-		enemy_table.add_item(spider_enemy_scene, 14)
-		enemy_table.add_item(bat_enemy_scene, 12)
-		number_spawned_enemies += 1
 	elif arena_difficulty == 20:
-		enemy_table.add_item(crab_enemy_scene, 6)
+		enemy_table.add_item(crab_enemy_scene, 4)
 		number_spawned_enemies += 1
 	elif arena_difficulty == 25:
 		number_spawned_enemies += 1
@@ -125,6 +125,7 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 		number_spawned_enemies += 2
 	elif arena_difficulty == 35:
 		number_spawned_enemies += 3
+	print("Arena difficulty increased, level: " + str(arena_difficulty) + ". Spawning " + str(number_spawned_enemies) + " enemies per " + str(timer.wait_time) + " seconds")
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade.id == "debuff_enemies":

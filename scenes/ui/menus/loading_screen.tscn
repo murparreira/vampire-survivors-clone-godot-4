@@ -1,123 +1,22 @@
-[gd_scene load_steps=18 format=3 uid="uid://da7t4gvqhbgj0"]
+[gd_scene load_steps=14 format=3 uid="uid://ve0r268nejfp"]
 
-[ext_resource type="Texture2D" uid="uid://1q2odkn4f00y" path="res://assets/ui/screen_transition.png" id="2_cvtlf"]
+[ext_resource type="Script" path="res://scenes/ui/menus/loading_screen.gd" id="1_paplc"]
 
-[sub_resource type="GDScript" id="GDScript_ugb0n"]
-script/source = "extends CanvasLayer
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17cna"]
+bg_color = Color(1, 1, 1, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
-signal transitioned_halfway
-var skip_emit = false
-
-func emit_transitioned_halfway():
-	if skip_emit:
-		skip_emit = false
-		return
-	transitioned_halfway.emit()
-
-func transition():
-	$AnimationPlayer2.play(\"fade_to_black\")
-	#await transitioned_halfway
-	#$AnimationPlayer2.play_backwards(\"fade_from_black\")
-"
-
-[sub_resource type="Animation" id="Animation_722m7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/percent")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_eksqv"]
-resource_name = "default"
-length = 0.4
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/percent")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(2, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"emit_transitioned_halfway"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ColorRect:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.01),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1wiee"]
-_data = {
-"RESET": SubResource("Animation_722m7"),
-"default": SubResource("Animation_eksqv")
-}
-
-[sub_resource type="Shader" id="Shader_yuk3q"]
-code = "shader_type canvas_item;
-
-uniform vec4 transition_color: source_color;
-uniform sampler2D transition_texture: filter_nearest;
-uniform float percent: hint_range(0.0, 1.0, 0.1);
-
-void fragment() {
-	vec4 transition_texture_color = texture(transition_texture, UV);
-	if (transition_texture_color.r > percent) {
-		COLOR.a = 0.0;
-	} else {
-		COLOR = transition_color;
-	}
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_14qe4"]
-shader = SubResource("Shader_yuk3q")
-shader_parameter/transition_color = Color(0.247059, 0.14902, 0.192157, 1)
-shader_parameter/percent = 0.5
-shader_parameter/transition_texture = ExtResource("2_cvtlf")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ljhlj"]
+bg_color = Color(0.760784, 0.341176, 0.411765, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="Animation" id="Animation_cyt7q"]
 length = 0.001
@@ -595,26 +494,43 @@ _data = {
 "wipe_to_right": SubResource("Animation_5sryv")
 }
 
-[node name="ScreenTransition" type="CanvasLayer"]
-process_mode = 3
-layer = 5
-script = SubResource("GDScript_ugb0n")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_1wiee")
-}
+[node name="LoadingScreen" type="CanvasLayer"]
+script = ExtResource("1_paplc")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-material = SubResource("ShaderMaterial_14qe4")
 anchors_preset = 9
 anchor_bottom = 1.0
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_17cna")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ljhlj")
+show_percentage = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_4w84n")
 }
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

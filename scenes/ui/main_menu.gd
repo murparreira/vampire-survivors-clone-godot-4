@@ -8,13 +8,9 @@ func _ready():
 	$%QuitButton.pressed.connect(on_quit_pressed)
 
 func on_play_pressed():
-	ScreenTransition.transition()
-	await ScreenTransition.transitioned_halfway
-	get_tree().change_scene_to_file("res://scenes/main/main.tscn")
+	SceneManager.swap_scenes("res://scenes/main/main.tscn", get_tree().root, self, "fade_to_black")
 
 func on_options_pressed():
-	ScreenTransition.transition()
-	await ScreenTransition.transitioned_halfway
 	var options_instance = options_scene.instantiate()
 	add_child(options_instance)
 	options_instance.back_pressed.connect(on_options_closed.bind(options_instance))

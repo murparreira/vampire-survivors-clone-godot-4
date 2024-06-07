@@ -79,7 +79,7 @@ func set_boss_attributes(boss_enemy: Node2D):
 	boss_enemy.velocity_component.acceleration = 0.5
 	boss_enemy.damage_component.damage = 20
 	boss_enemy.health_component.max_health = 1000
-	boss_enemy.health_component.current_health = 5
+	boss_enemy.health_component.current_health = 1000
 	boss_enemy.collision_shape.shape.radius = 30
 	boss_enemy.collision_shape.position.y = -30
 	boss_enemy.hurtbox_collision_shape.shape.radius = 42
@@ -99,6 +99,8 @@ func on_timer_timeout():
 		spawn_enemy(enemy)
 
 func on_arena_difficulty_increased(arena_difficulty: int):
+	if $Timer == null:
+		return
 	var time_off = (0.1 / 12) * arena_difficulty
 	time_off = max(time_off, 0.7)
 	timer.wait_time = base_spawn_time - time_off
@@ -119,6 +121,10 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 		number_spawned_enemies += 1
 	elif arena_difficulty == 25:
 		number_spawned_enemies += 1
+	elif arena_difficulty == 30:
+		number_spawned_enemies += 2
+	elif arena_difficulty == 35:
+		number_spawned_enemies += 3
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade.id == "debuff_enemies":

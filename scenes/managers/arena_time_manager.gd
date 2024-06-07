@@ -26,6 +26,3 @@ func on_timer_timeout():
 	MusicPlayer.stop()
 	BossMusicPlayer.play()
 	boss_enemy_spawn.emit()
-	#var end_screen_instance = end_screen_scene.instantiate()
-	#add_child(end_screen_instance)
-	#end_screen_instance.play_jingle()

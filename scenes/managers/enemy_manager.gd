@@ -7,6 +7,7 @@ signal boss_defeated
 @export var spider_enemy_scene: PackedScene
 @export var bat_enemy_scene: PackedScene
 @export var crab_enemy_scene: PackedScene
+@export var mimic_enemy_scene: PackedScene
 
 @export var upgrade_manager: UpgradeManager
 @export var arena_time_manager: Node
@@ -104,26 +105,27 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	var time_off = (0.1 / 12) * arena_difficulty
 	time_off = max(time_off, 0.7)
 	timer.wait_time = base_spawn_time - time_off
-	if arena_difficulty == 5:
+	if arena_difficulty == 6:
 		enemy_table.add_item(spider_enemy_scene, 12)
 		number_spawned_enemies += 1
-	elif arena_difficulty == 10:
+	elif arena_difficulty == 12:
 		enemy_table.add_item(bat_enemy_scene, 6)
 		enemy_table.add_item(crab_enemy_scene, 1)
 		number_spawned_enemies += 1
-	elif arena_difficulty == 15:
+	elif arena_difficulty == 18:
 		enemy_table.add_item(spider_enemy_scene, 16)
 		enemy_table.add_item(bat_enemy_scene, 10)
 		enemy_table.add_item(crab_enemy_scene, 2)
 		number_spawned_enemies += 1
-	elif arena_difficulty == 20:
+	elif arena_difficulty == 24:
 		enemy_table.add_item(crab_enemy_scene, 4)
 		number_spawned_enemies += 1
-	elif arena_difficulty == 25:
-		number_spawned_enemies += 1
 	elif arena_difficulty == 30:
+		number_spawned_enemies += 1
+	elif arena_difficulty == 36:
 		number_spawned_enemies += 2
-	elif arena_difficulty == 35:
+	elif arena_difficulty == 42:
+		enemy_table.add_item(mimic_enemy_scene, 10)
 		number_spawned_enemies += 3
 	print("Arena difficulty increased, level: " + str(arena_difficulty) + ". Spawning " + str(number_spawned_enemies) + " enemies per " + str(timer.wait_time) + " seconds")
 

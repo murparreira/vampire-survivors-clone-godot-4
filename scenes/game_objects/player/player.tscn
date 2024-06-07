@@ -134,6 +134,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="HealthBar" type="ProgressBar" parent="."]
+z_index = 1
 custom_minimum_size = Vector2(24, 6)
 offset_left = -16.0
 offset_top = -24.0

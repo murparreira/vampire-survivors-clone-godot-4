@@ -91,6 +91,8 @@ func on_arena_difficulty_increased(arena_difficulty: int):
 	elif arena_difficulty == 20:
 		enemy_table.add_item(crab_enemy_scene, 6)
 		number_spawned_enemies += 1
+	elif arena_difficulty == 25:
+		number_spawned_enemies += 1
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade.id == "debuff_enemies":

@@ -23,6 +23,7 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 shape = SubResource("CircleShape2D_ewwb6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

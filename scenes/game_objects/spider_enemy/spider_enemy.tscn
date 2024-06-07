@@ -175,12 +175,10 @@ offset = Vector2(0, -6)
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-visible = false
 position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_y7pug")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_pfvo2")
 

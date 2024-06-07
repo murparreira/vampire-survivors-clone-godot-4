@@ -1,5 +1,8 @@
 extends Node
 
+signal boss_defeated
+
+@export var end_screen_scene: PackedScene
 @export var basic_enemy_scene: PackedScene
 @export var spider_enemy_scene: PackedScene
 @export var bat_enemy_scene: PackedScene
@@ -21,6 +24,7 @@ func _ready():
 	base_spawn_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
+	arena_time_manager.boss_enemy_spawn.connect(on_boss_enemy_spawn)
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 func get_spawn_position():
@@ -56,6 +60,33 @@ func get_spawn_position():
 
 	return spawn_position
 
+func despawn_all_enemies():
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	for enemy in enemies:
+		enemy.queue_free()
+
+func spawn_enemy(enemy: Node2D):	
+	var entities_layer = get_tree().get_first_node_in_group("entities_layer")
+	entities_layer.add_child(enemy)
+	enemy.global_position = get_spawn_position()
+	if upgrade_manager.current_upgrades.has("debuff_enemies"):
+		enemy.damage_component.decrease_damage(upgrade_manager.current_upgrades["debuff_enemies"]["quantity"])
+		GameEvents.enemy_spawned.emit(1)
+
+func set_boss_attributes(boss_enemy: Node2D):
+	boss_enemy.sprite.scale = Vector2(5, 5)
+	boss_enemy.velocity_component.max_speed = 300
+	boss_enemy.velocity_component.acceleration = 0.5
+	boss_enemy.damage_component.damage = 20
+	boss_enemy.health_component.max_health = 1000
+	boss_enemy.health_component.current_health = 5
+	boss_enemy.collision_shape.shape.radius = 30
+	boss_enemy.collision_shape.position.y = -30
+	boss_enemy.hurtbox_collision_shape.shape.radius = 42
+	boss_enemy.hurtbox_collision_shape.position.y = -30
+	boss_enemy.boss = true
+	boss_enemy.health_component.died.connect(on_boss_defeat)
+
 func on_timer_timeout():
 	timer.start()
 	var player = get_tree().get_first_node_in_group("player") as Node2D
@@ -65,12 +96,7 @@ func on_timer_timeout():
 	for i in number_spawned_enemies:
 		var enemy_scene = enemy_table.pick_item()
 		var enemy = enemy_scene.instantiate() as Node2D
-		var entities_layer = get_tree().get_first_node_in_group("entities_layer")
-		entities_layer.add_child(enemy)
-		enemy.global_position = get_spawn_position()
-		if upgrade_manager.current_upgrades.has("debuff_enemies"):
-			enemy.damage_component.decrease_damage(upgrade_manager.current_upgrades["debuff_enemies"]["quantity"])
-		GameEvents.enemy_spawned.emit(1)
+		spawn_enemy(enemy)
 
 func on_arena_difficulty_increased(arena_difficulty: int):
 	var time_off = (0.1 / 12) * arena_difficulty
@@ -99,3 +125,16 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		var enemies = get_tree().get_nodes_in_group("enemy")
 		for enemy in enemies:
 			enemy.damage_component.decrease_damage(1)
+			
+func on_boss_enemy_spawn():
+	$Timer.queue_free()
+	despawn_all_enemies()
+	var boss_enemy_scene = enemy_table.pick_item()
+	var boss_enemy = boss_enemy_scene.instantiate() as Node2D
+	spawn_enemy(boss_enemy)
+	set_boss_attributes(boss_enemy)
+
+func on_boss_defeat():
+	var end_screen_instance = end_screen_scene.instantiate()
+	add_child(end_screen_instance)
+	end_screen_instance.play_jingle()

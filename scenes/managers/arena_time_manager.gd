@@ -4,6 +4,7 @@ extends Node
 @onready var timer = $Timer
 
 signal arena_difficulty_increased(arena_difficulty: int)
+signal boss_enemy_spawn
 
 const DIFFICULTY_INTERVAL = 5
 
@@ -22,6 +23,9 @@ func get_time_ellapsed():
 	return timer.wait_time - timer.time_left
 
 func on_timer_timeout():
-	var end_screen_instance = end_screen_scene.instantiate()
-	add_child(end_screen_instance)
-	end_screen_instance.play_jingle()
+	MusicPlayer.stop()
+	BossMusicPlayer.play()
+	boss_enemy_spawn.emit()
+	#var end_screen_instance = end_screen_scene.instantiate()
+	#add_child(end_screen_instance)
+	#end_screen_instance.play_jingle()

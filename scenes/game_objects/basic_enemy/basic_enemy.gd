@@ -1,10 +1,16 @@
 extends CharacterBody2D
 
 @onready var visuals = $Visuals
+@onready var sprite = $Visuals/Sprite2D
 @onready var velocity_component = $VelocityComponent
 @onready var damage_component = $DamageComponent
+@onready var health_component = $HealthComponent
+@onready var hurtbox_collision_shape = $HurtboxComponent/CollisionShape2D
+@onready var collision_shape = $CollisionShape2D
 
 const TYPE = 'basic'
+
+var boss = false
 
 func _ready():
 	$HurtboxComponent.hit.connect(on_hit)

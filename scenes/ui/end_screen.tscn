@@ -128,12 +128,18 @@ layout_mode = 2
 text = "YOU WON!"
 horizontal_alignment = 1
 
-[node name="RestartButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_8d0pt")]
+[node name="RestartCharacterButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_8d0pt")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Restart"
+text = "Character Selection"
+
+[node name="MainMenuButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_8d0pt")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back to Main Menu
+"
 
 [node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_8d0pt")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Quit"
+text = "Quit Game"

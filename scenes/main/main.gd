@@ -8,6 +8,9 @@ var pause_menu_scene = preload("res://scenes/ui/pause_menu.tscn")
 var character: Character
 
 func _ready():
+	BossMusicPlayer.stop()
+	MenuMusicPlayer.stop()
+	MusicPlayer.play()
 	player.sprite.texture = character.character_sprite
 	player.abilities.add_child(character.ability_controller.instantiate())
 	player.health_component.died.connect(on_player_died)

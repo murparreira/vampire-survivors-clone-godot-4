@@ -80,7 +80,7 @@ func set_boss_attributes(boss_enemy: Node2D):
 	boss_enemy.velocity_component.acceleration = 0.5
 	boss_enemy.damage_component.damage = 30
 	boss_enemy.health_component.max_health = 3000
-	boss_enemy.health_component.current_health = 3000
+	boss_enemy.health_component.current_health = 1
 	if boss_enemy.collision_shape.shape is RectangleShape2D:
 		boss_enemy.collision_shape.shape.size = Vector2(30, 30)
 	else:

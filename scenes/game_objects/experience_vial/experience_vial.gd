@@ -5,6 +5,7 @@ extends Node2D
 
 func _ready():
 	$Area2D.area_entered.connect(on_area_entered)
+	$Timer.timeout.connect(on_timer_timeout)
 	
 func collect():
 	GameEvents.emit_experience_vial_collected(1)
@@ -31,3 +32,6 @@ func on_area_entered(other_area: Area2D):
 	tween.chain()
 	tween.tween_callback(collect)
 	$RandomStreamPlayer2DComponent.play_random()
+	
+func on_timer_timeout():
+	queue_free()

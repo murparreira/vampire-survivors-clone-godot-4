@@ -40,7 +40,7 @@ size_flags_vertical = 4
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
-text = "Mage Arena"
+text = "The Arena"
 
 [node name="PlayButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_upbx5")]
 unique_name_in_owner = true

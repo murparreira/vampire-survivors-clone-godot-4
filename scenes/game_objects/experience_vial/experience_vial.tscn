@@ -28,3 +28,8 @@ shape = SubResource("CircleShape2D_ewwb6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2oixh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+autostart = true

@@ -10,5 +10,5 @@ ability_controller_scene = ExtResource("1_vp4md")
 id = "giantaxe"
 max_quantity = 5
 name = "Giantaxe"
-description = "Periodically sends out a spinning axe"
+description = "Periodically sends out a spinning Giantaxe"
 sprite = ExtResource("2_vv23g")

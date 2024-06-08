@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_dsr7n")
 id = "debuff_enemies"
-max_quantity = 0
+max_quantity = 5
 name = "Debuff Enemies"
-description = "Decreases all enemies damage by 25% (Capped to 1)"
+description = "Decreases all enemies damage by 10% (Capped at 50%)"
 sprite = ExtResource("2_f1tug")

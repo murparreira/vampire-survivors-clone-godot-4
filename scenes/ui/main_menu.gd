@@ -8,7 +8,7 @@ func _ready():
 	$%QuitButton.pressed.connect(on_quit_pressed)
 
 func on_play_pressed():
-	SceneManager.swap_scenes("res://scenes/main/main.tscn", get_tree().root, self, "fade_to_black")
+	SceneManager.swap_scenes("res://scenes/ui/character_selection_screen.tscn", get_tree().root, self, "fade_to_black")
 
 func on_options_pressed():
 	var options_instance = options_scene.instantiate()

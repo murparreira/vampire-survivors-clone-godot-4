@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var abilities = $Abilities
 @onready var animation_player = $AnimationPlayer
 @onready var visuals = $Visuals
+@onready var sprite = $%Sprite2D
 @onready var velocity_component = $VelocityComponent
 
 var number_colliding_bodies = 0
@@ -73,7 +74,7 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades:
 		if current_upgrades[ability_upgrade.id]["quantity"] == 1:
 			abilities.add_child(ability_upgrade.ability_controller_scene.instantiate())
 	elif ability_upgrade.id == "player_speed":
-		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"] * .1)
+		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"] * .2)
 		print("Got a speed upgrade, now your speed is ", velocity_component.max_speed)
 	elif ability_upgrade.id == "restore_life":
 		var health_to_restore = health_component.max_health/2 + health_component.current_health

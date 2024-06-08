@@ -43,7 +43,7 @@ func on_options_pressed():
 	
 func on_quit_pressed():
 	get_tree().paused = false
-	SceneManager.swap_scenes("res://scenes/ui/main_menu.tscn", get_tree().root, self, "fade_to_black")
+	SceneManager.swap_scenes("res://scenes/ui/main_menu.tscn", get_tree().root, self.get_parent(), "fade_to_black")
 
 func on_options_closed(options_instance: Node):
 	options_instance.queue_free()

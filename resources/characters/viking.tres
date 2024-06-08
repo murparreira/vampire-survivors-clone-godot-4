@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Character" load_steps=5 format=3 uid="uid://bkdwh0r7tay70"]
+
+[ext_resource type="PackedScene" uid="uid://cjabx5tn3kb2v" path="res://scenes/abilities/giantaxe_ability_controller/giantaxe_ability_controller.tscn" id="1_hepu8"]
+[ext_resource type="Texture2D" uid="uid://cqdvannp7konw" path="res://resources/characters/viking.png" id="2_veasd"]
+[ext_resource type="Script" path="res://resources/characters/character.gd" id="3_wkklx"]
+[ext_resource type="Texture2D" uid="uid://tt2ny8ux8v54" path="res://scenes/abilities/giantaxe_ability/giantaxe.png" id="4_7h42m"]
+
+[resource]
+script = ExtResource("3_wkklx")
+id = "viking"
+name = "Ragnar two-horns"
+description = "A fierce warrior from the northlands who uses giantaxes to slay enemies"
+character_sprite = ExtResource("2_veasd")
+weapon_sprite = ExtResource("4_7h42m")
+ability_controller = ExtResource("1_hepu8")

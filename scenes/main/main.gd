@@ -3,10 +3,18 @@ extends Node
 @export var end_screen_scene: PackedScene
 
 var pause_menu_scene = preload("res://scenes/ui/pause_menu.tscn")
+@onready var player = $%Player
+
+var character: Character
 
 func _ready():
-	$%Player.health_component.died.connect(on_player_died)
-	
+	player.sprite.texture = character.character_sprite
+	player.abilities.add_child(character.ability_controller.instantiate())
+	player.health_component.died.connect(on_player_died)
+
+func receive_data(data):
+	character = data["character"]
+
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		add_child(pause_menu_scene.instantiate())

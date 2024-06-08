@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://xcmcjx1qnute"]
+[gd_scene load_steps=12 format=3 uid="uid://xcmcjx1qnute"]
 
 [ext_resource type="Texture2D" uid="uid://othdwyisoide" path="res://scenes/abilities/longsword_ability/longsword.png" id="1_44yhf"]
 [ext_resource type="Script" path="res://scenes/ui/upgrade_list_screen.gd" id="1_v3vxh"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c6qihly08jkn3" path="res://resources/upgrades/quantity_potion.png" id="6_58ttg"]
 [ext_resource type="Texture2D" uid="uid://bgeip68mmlvgc" path="res://scenes/abilities/anvil_ability/anvil.png" id="6_ji3lb"]
 [ext_resource type="Texture2D" uid="uid://dciel4txgpha2" path="res://resources/upgrades/speed_potion.png" id="7_u3avf"]
+[ext_resource type="Texture2D" uid="uid://vlpx5x8h2m2i" path="res://resources/upgrades/debuff_enemies.png" id="11_skw6c"]
 
 [node name="UpgradeListScreen" type="CanvasLayer"]
 script = ExtResource("1_v3vxh")
@@ -111,6 +112,17 @@ layout_mode = 2
 texture = ExtResource("7_u3avf")
 
 [node name="SpeedPotionQuantity" type="Label" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+text = "x1"
+
+[node name="DebuffPotion" type="TextureRect" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("11_skw6c")
+
+[node name="DebuffPotionQuantity" type="Label" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 14

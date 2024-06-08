@@ -71,19 +71,25 @@ func spawn_enemy(enemy: Node2D):
 	entities_layer.add_child(enemy)
 	enemy.global_position = get_spawn_position()
 	if upgrade_manager.current_upgrades.has("debuff_enemies"):
-		enemy.damage_component.decrease_damage_by_percentage(upgrade_manager.current_upgrades["debuff_enemies"]["quantity"] * .25)
+		enemy.damage_component.decrease_damage_by_percentage(upgrade_manager.current_upgrades["debuff_enemies"]["quantity"] * .1)
 		GameEvents.enemy_spawned.emit(1)
 
 func set_boss_attributes(boss_enemy: Node2D):
 	boss_enemy.sprite.scale = Vector2(5, 5)
 	boss_enemy.velocity_component.max_speed = 300
 	boss_enemy.velocity_component.acceleration = 0.5
-	boss_enemy.damage_component.damage = 20
-	boss_enemy.health_component.max_health = 1000
-	boss_enemy.health_component.current_health = 1000
-	boss_enemy.collision_shape.shape.radius = 30
+	boss_enemy.damage_component.damage = 30
+	boss_enemy.health_component.max_health = 3000
+	boss_enemy.health_component.current_health = 3000
+	if boss_enemy.collision_shape.shape is RectangleShape2D:
+		boss_enemy.collision_shape.shape.size = Vector2(30, 30)
+	else:
+		boss_enemy.collision_shape.shape.radius = 30
 	boss_enemy.collision_shape.position.y = -30
-	boss_enemy.hurtbox_collision_shape.shape.radius = 42
+	if boss_enemy.collision_shape.shape is RectangleShape2D:
+		boss_enemy.hurtbox_collision_shape.shape.size = Vector2(42, 42)
+	else:
+		boss_enemy.hurtbox_collision_shape.shape.radius = 42
 	boss_enemy.hurtbox_collision_shape.position.y = -30
 	boss_enemy.boss = true
 	boss_enemy.health_component.died.connect(on_boss_defeat)

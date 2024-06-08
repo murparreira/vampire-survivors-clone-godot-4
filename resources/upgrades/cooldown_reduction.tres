@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_tpu67")
 id = "cooldown_reduction"
-max_quantity = 0
+max_quantity = 5
 name = "Cooldown"
-description = "Reduces abilities cooldown by 10%"
+description = "Reduces abilities cooldown by 10% (Capped at 50%)"
 sprite = ExtResource("2_nur1f")

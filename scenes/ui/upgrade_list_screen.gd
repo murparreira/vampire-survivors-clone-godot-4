@@ -17,6 +17,8 @@ extends CanvasLayer
 @onready var quantity_potion_quantity = %QuantityPotionQuantity
 @onready var speed_potion = %SpeedPotion
 @onready var speed_potion_quantity = %SpeedPotionQuantity
+@onready var debuff_potion = %DebuffPotion
+@onready var debuff_potion_quantity = %DebuffPotionQuantity
 
 func _ready():
 	longsword_quantity.text = "x0"
@@ -27,6 +29,7 @@ func _ready():
 	cooldown_potion_quantity.text = "x0"
 	quantity_potion_quantity.text = "x0"
 	speed_potion_quantity.text = "x0"
+	debuff_potion_quantity.text = "x0"
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
@@ -50,5 +53,7 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 				quantity_potion_quantity.text = "x" + str_quantity
 			"player_speed":
 				speed_potion_quantity.text = "x" + str_quantity
+			"debuff_enemies":
+				debuff_potion_quantity.text = "x" + str_quantity
 			_:
 				continue

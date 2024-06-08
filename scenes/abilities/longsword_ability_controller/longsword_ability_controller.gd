@@ -51,20 +51,17 @@ func on_timer_timeout():
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade.id == "longsword":
-		if current_upgrades["longsword"]["quantity"] == 1:
+		if current_upgrades["longsword"]["quantity"] == 2:
 			additional_damage_from_upgrades += 2
 			pass
-		elif current_upgrades["longsword"]["quantity"] == 2:
+		elif current_upgrades["longsword"]["quantity"] == 3:
 			additional_damage_from_upgrades += 4
 			pass
-		elif current_upgrades["longsword"]["quantity"] == 3:
+		elif current_upgrades["longsword"]["quantity"] == 4:
 			additional_damage_from_upgrades += 6
 			pass
-		elif current_upgrades["longsword"]["quantity"] == 4:
-			additional_damage_from_upgrades += 8
-			pass
 		elif current_upgrades["longsword"]["quantity"] == 5:
-			additional_damage_from_upgrades += 10
+			additional_damage_from_upgrades += 8
 			pass
 		print("Longsword level upgraded. Now: ", current_upgrades["longsword"]["quantity"])
 	elif upgrade.id == "cooldown_reduction":

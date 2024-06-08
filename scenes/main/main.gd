@@ -4,6 +4,7 @@ extends Node
 
 var pause_menu_scene = preload("res://scenes/ui/pause_menu.tscn")
 @onready var player = $%Player
+@onready var upgrade_manager = $UpgradeManager
 
 var character: Character
 
@@ -12,8 +13,9 @@ func _ready():
 	MenuMusicPlayer.stop()
 	MusicPlayer.play()
 	player.sprite.texture = character.character_sprite
-	player.abilities.add_child(character.ability_controller.instantiate())
+	#player.abilities.add_child(character.ability_controller.instantiate())
 	player.health_component.died.connect(on_player_died)
+	upgrade_manager.apply_upgrade(character.weapon_upgrade)
 
 func receive_data(data):
 	character = data["character"]

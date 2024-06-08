@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dx7h4muent7rr" path="res://scenes/abilities/longsword_ability_controller/longsword_ability_controller.tscn" id="1_21yv6"]
 [ext_resource type="Texture2D" uid="uid://b7782118xop7e" path="res://resources/characters/warrior.png" id="2_qd2je"]
 [ext_resource type="Script" path="res://resources/characters/character.gd" id="3_q3w5p"]
-[ext_resource type="Texture2D" uid="uid://othdwyisoide" path="res://scenes/abilities/longsword_ability/longsword.png" id="4_cj7ua"]
+[ext_resource type="Resource" uid="uid://biirsq6ygge6u" path="res://resources/upgrades/longsword.tres" id="4_5osos"]
 
 [resource]
 script = ExtResource("3_q3w5p")
@@ -11,5 +11,5 @@ id = "warrior"
 name = "Jon Steel"
 description = "A honored warrior from the eastlands who uses a longsword to fight"
 character_sprite = ExtResource("2_qd2je")
-weapon_sprite = ExtResource("4_cj7ua")
+weapon_upgrade = ExtResource("4_5osos")
 ability_controller = ExtResource("1_21yv6")

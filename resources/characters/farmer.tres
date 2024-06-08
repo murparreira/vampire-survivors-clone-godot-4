@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dguu7h1uke7eo" path="res://scenes/abilities/scythe_ability_controller/scythe_ability_controller.tscn" id="1_s7mb8"]
 [ext_resource type="Texture2D" uid="uid://dlwoiwmi5qknw" path="res://resources/characters/farmer.png" id="2_ytlk2"]
 [ext_resource type="Script" path="res://resources/characters/character.gd" id="3_2edjx"]
-[ext_resource type="Texture2D" uid="uid://vxlscq8fy1by" path="res://scenes/abilities/scythe_ability/sctyhe.png" id="4_ggh0q"]
+[ext_resource type="Resource" uid="uid://dvhkw7qjshqlf" path="res://resources/upgrades/scythe.tres" id="4_gcsjs"]
 
 [resource]
 script = ExtResource("3_2edjx")
@@ -11,5 +11,5 @@ id = "farmer"
 name = "Miss Gardening"
 description = "A farmer from the ancient city of Liberia with a deadly spinning scythe"
 character_sprite = ExtResource("2_ytlk2")
-weapon_sprite = ExtResource("4_ggh0q")
+weapon_upgrade = ExtResource("4_gcsjs")
 ability_controller = ExtResource("1_s7mb8")

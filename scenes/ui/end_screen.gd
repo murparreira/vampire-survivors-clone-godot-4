@@ -30,15 +30,15 @@ func on_restart_character_button_pressed():
 	get_tree().paused = false
 	MusicPlayer.stop()
 	BossMusicPlayer.stop()
+	SceneManager.swap_scenes("res://scenes/ui/character_selection_screen.tscn", get_tree().root, self.get_parent(), "fade_to_black")
 	MenuMusicPlayer.play()
-	SceneManager.swap_scenes("res://scenes/ui/character_selection_screen.tscn", get_tree().root, self.get_parent().get_parent(), "fade_to_black")
 	
 func on_main_menu_button_pressed():
 	get_tree().paused = false
 	MusicPlayer.stop()
 	BossMusicPlayer.stop()
+	SceneManager.swap_scenes("res://scenes/ui/main_menu.tscn", get_tree().root, self.get_parent(), "fade_to_black")
 	MenuMusicPlayer.play()
-	SceneManager.swap_scenes("res://scenes/ui/main_menu.tscn", get_tree().root, self.get_parent().get_parent(), "fade_to_black")
 
 func on_quit_button_pressed():
 	get_tree().quit()

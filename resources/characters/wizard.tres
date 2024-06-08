@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://resources/characters/character.gd" id="1_cwp08"]
 [ext_resource type="PackedScene" uid="uid://b5w174554jah7" path="res://scenes/abilities/anvil_ability_controller/anvil_ability_controller.tscn" id="1_uox3h"]
 [ext_resource type="Texture2D" uid="uid://dxremcji48prn" path="res://scenes/game_objects/player/player.png" id="2_3pwhc"]
-[ext_resource type="Texture2D" uid="uid://bgeip68mmlvgc" path="res://scenes/abilities/anvil_ability/anvil.png" id="4_6aem2"]
+[ext_resource type="Resource" uid="uid://bm0uwa6eccdf2" path="res://resources/upgrades/anvil.tres" id="4_uwuck"]
 
 [resource]
 script = ExtResource("1_cwp08")
@@ -11,5 +11,5 @@ id = "wizard"
 name = "Mr. Longbeard"
 description = "An old wizard from Terracota who spawns anvils around him"
 character_sprite = ExtResource("2_3pwhc")
-weapon_sprite = ExtResource("4_6aem2")
+weapon_upgrade = ExtResource("4_uwuck")
 ability_controller = ExtResource("1_uox3h")

@@ -25,7 +25,7 @@ func set_character_selection_data(character: Character):
 	name_label.text = character.name
 	description_label.text = character.description
 	character_texture.texture = character.character_sprite
-	weapon_texture.texture = character.weapon_sprite
+	weapon_texture.texture = character.weapon_upgrade.sprite
 	
 func select_card():
 	disabled = true

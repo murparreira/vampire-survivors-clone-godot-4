@@ -9,6 +9,7 @@ script = ExtResource("2_2mx18")
 ability_controller_scene = ExtResource("1_u7jjo")
 id = "longsword"
 max_quantity = 5
+base_damage = 4
 name = "Longsword"
 description = "Spawn a Longsword on the closest enemy"
 sprite = ExtResource("3_4purg")

@@ -27,6 +27,7 @@ MusicPlayer="*res://scenes/autoload/music_player.tscn"
 BossMusicPlayer="*res://scenes/autoload/boss_music_player.tscn"
 SceneManager="*res://scenes/autoload/scene_manager.gd"
 MenuMusicPlayer="*res://scenes/autoload/menu_music_player.tscn"
+GameData="*res://scenes/autoload/game_data.gd"
 
 [display]
 

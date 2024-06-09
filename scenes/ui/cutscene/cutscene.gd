@@ -11,12 +11,10 @@ extends Node2D
 @onready var timer_third_label = $%TimerThirdLabel
 
 var speed = 0.15
-var cutscene_data
-var character: Character
 var stop_following = true
 
 func _ready():
-	sprite.texture = cutscene_data["character"].character_sprite
+	sprite.texture = GameData.character.character_sprite
 	first_label.visible = false
 	second_label.visible = false
 	third_label.visible = false
@@ -29,12 +27,6 @@ func _process(delta):
 	if stop_following:
 		return
 	path_follow_2d.progress_ratio += speed * delta
-
-func get_data():
-	return cutscene_data
-
-func receive_data(data):
-	cutscene_data = data
 
 func cutscene_ended():
 	SceneManager.swap_scenes("res://scenes/main/main.tscn", get_tree().root, self, "fade_to_black")

@@ -1,11 +1,15 @@
 extends Node
 
+signal character_selected(character: Character)
 signal experience_vial_collected(number: float)
 signal ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary)
 signal player_damaged()
 signal enemy_defeated(number: int)
 signal enemy_spawned(number: int)
 signal enemy_despawned(number: int)
+
+func emit_character_selected(character: Character):
+	character_selected.emit(character)
 
 func emit_experience_vial_collected(number: float):
 	experience_vial_collected.emit(number)

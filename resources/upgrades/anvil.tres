@@ -9,6 +9,7 @@ script = ExtResource("2_ic02f")
 ability_controller_scene = ExtResource("1_qforn")
 id = "anvil"
 max_quantity = 5
+base_damage = 12
 name = "Anvil"
 description = "Drops Anvils from heaven around the player"
 sprite = ExtResource("2_r7i0k")

@@ -6,6 +6,7 @@
 [node name="BossMusicPlayer" type="AudioStreamPlayer"]
 stream = ExtResource("1_r0wi7")
 volume_db = -12.0
+bus = &"music"
 script = ExtResource("2_om36i")
 
 [node name="Timer" type="Timer" parent="."]

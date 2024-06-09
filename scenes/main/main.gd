@@ -6,18 +6,13 @@ var pause_menu_scene = preload("res://scenes/ui/pause_menu.tscn")
 @onready var player = $%Player
 @onready var upgrade_manager = $UpgradeManager
 
-var character: Character
-
 func _ready():
 	BossMusicPlayer.stop()
 	MenuMusicPlayer.stop()
 	MusicPlayer.play()
-	player.sprite.texture = character.character_sprite
+	player.sprite.texture = GameData.character.character_sprite
 	player.health_component.died.connect(on_player_died)
-	upgrade_manager.apply_upgrade(character.weapon_upgrade)
-
-func receive_data(data):
-	character = data["character"]
+	upgrade_manager.apply_upgrade(GameData.character.weapon_upgrade)
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):

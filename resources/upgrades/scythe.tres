@@ -9,6 +9,7 @@ script = ExtResource("1_6c1vs")
 ability_controller_scene = ExtResource("1_v8j8n")
 id = "scythe"
 max_quantity = 5
+base_damage = 6
 name = "Scythe"
 description = "Throws spinning Scythes in 4 random directions"
 sprite = ExtResource("3_0sgbw")

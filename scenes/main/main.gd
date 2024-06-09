@@ -13,7 +13,6 @@ func _ready():
 	MenuMusicPlayer.stop()
 	MusicPlayer.play()
 	player.sprite.texture = character.character_sprite
-	#player.abilities.add_child(character.ability_controller.instantiate())
 	player.health_component.died.connect(on_player_died)
 	upgrade_manager.apply_upgrade(character.weapon_upgrade)
 

@@ -33,7 +33,7 @@ func on_character_selected(character):
 	data["character"] = character
 	$AnimationPlayer.play("out")
 	await $AnimationPlayer.animation_finished
-	SceneManager.swap_scenes("res://scenes/main/main.tscn", get_tree().root, self, "fade_to_black")
+	SceneManager.swap_scenes("res://scenes/ui/cutscene/cutscene.tscn", get_tree().root, self, "fade_to_black")
 
 func on_back_button_pressed():
 	SceneManager.swap_scenes("res://scenes/ui/main_menu.tscn", get_tree().root, self, "fade_to_black")

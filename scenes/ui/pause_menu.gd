@@ -43,7 +43,10 @@ func on_options_pressed():
 	
 func on_quit_pressed():
 	get_tree().paused = false
+	MusicPlayer.stop()
+	BossMusicPlayer.stop()
 	SceneManager.swap_scenes("res://scenes/ui/main_menu.tscn", get_tree().root, self.get_parent(), "fade_to_black")
+	MenuMusicPlayer.play()
 
 func on_options_closed(options_instance: Node):
 	options_instance.queue_free()

@@ -102,6 +102,7 @@ func swap_scenes(scene_to_load:String, load_into:Node=null, scene_to_unload:Node
 	if load_into == null: load_into = get_tree().root
 	_load_scene_into = load_into
 	_scene_to_unload = scene_to_unload
+	print(scene_to_unload.get_parent())
 	var x = scene_to_unload.get_path()
 	
 	_add_loading_screen(transition_type)

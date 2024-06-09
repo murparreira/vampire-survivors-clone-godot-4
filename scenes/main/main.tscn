@@ -60,9 +60,9 @@ y_sort_enabled = true
 
 [node name="Player" parent="Entities" instance=ExtResource("1_npho4")]
 unique_name_in_owner = true
-position = Vector2(383, 366)
+position = Vector2(120, 264)
 
 [node name="ExperienceVial" parent="Entities" instance=ExtResource("7_tdta7")]
-position = Vector2(269, 404)
+position = Vector2(200, 304)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground_layer"]]

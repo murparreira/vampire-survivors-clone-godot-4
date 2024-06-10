@@ -133,6 +133,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Character Selection"
 
+[node name="MetaUpgradesMenu" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_8d0pt")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Meta Upgrades"
+
 [node name="MainMenuButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_8d0pt")]
 unique_name_in_owner = true
 layout_mode = 2

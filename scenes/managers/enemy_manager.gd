@@ -86,7 +86,7 @@ func set_boss_attributes(boss_enemy: Node2D):
 	else:
 		boss_enemy.collision_shape.shape.radius = 30
 	boss_enemy.collision_shape.position.y = -30
-	if boss_enemy.collision_shape.shape is RectangleShape2D:
+	if boss_enemy.hurtbox_collision_shape.shape is RectangleShape2D:
 		boss_enemy.hurtbox_collision_shape.shape.size = Vector2(42, 42)
 	else:
 		boss_enemy.hurtbox_collision_shape.shape.radius = 42
@@ -140,7 +140,7 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 		var enemies = get_tree().get_nodes_in_group("enemy")
 		for enemy in enemies:
 			enemy.damage_component.decrease_damage(1)
-			
+
 func on_boss_enemy_spawn():
 	$Timer.queue_free()
 	despawn_all_enemies()
@@ -153,3 +153,4 @@ func on_boss_defeat():
 	var end_screen_instance = end_screen_scene.instantiate()
 	add_child(end_screen_instance)
 	end_screen_instance.play_jingle()
+	MetaProgression.add_statistics_to_save_data("win_total_count", 1)

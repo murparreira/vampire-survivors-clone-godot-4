@@ -27,3 +27,4 @@ func on_area_entered(other_area: Area2D):
 	floating_text.start(str(hitbox_component.damage))
 	
 	hit.emit()
+	MetaProgression.add_statistics_to_save_data("total_damage_done", hitbox_component.damage)

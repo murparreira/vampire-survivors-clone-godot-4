@@ -12,6 +12,8 @@ config_version=5
 
 config/name="Arena"
 run/main_scene="res://scenes/ui/main_menu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="TheArena"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/bg_color=Color(0.247059, 0.14902, 0.192157, 1)
 boot_splash/image="res://scenes/game_objects/player/player.png"
@@ -28,6 +30,7 @@ BossMusicPlayer="*res://scenes/autoload/boss_music_player.tscn"
 SceneManager="*res://scenes/autoload/scene_manager.gd"
 MenuMusicPlayer="*res://scenes/autoload/menu_music_player.tscn"
 GameData="*res://scenes/autoload/game_data.gd"
+MetaProgression="*res://scenes/autoload/meta_progression.tscn"
 
 [display]
 

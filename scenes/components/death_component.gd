@@ -19,3 +19,4 @@ func on_died():
 	$RandomStreamPlayer2DComponent.play_random()
 	GameEvents.enemy_defeated.emit(1)
 	GameEvents.enemy_despawned.emit(1)
+	MetaProgression.add_statistics_to_save_data("total_kills", 1)

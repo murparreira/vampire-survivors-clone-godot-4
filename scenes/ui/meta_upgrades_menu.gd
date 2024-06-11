@@ -15,4 +15,4 @@ func _ready():
 		meta_upgrade_card_instance.set_meta_upgrade_data(meta_upgrade)
 
 func on_back_button_pressed():
-	SceneManager.swap_scenes("res://scenes/ui/main_menu.tscn", get_tree().root, self, "fade_to_black")
+	SceneManager.swap_scenes("res://scenes/ui/character_selection_screen.tscn", get_tree().root, self, "fade_to_black")

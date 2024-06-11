@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk03xp6o028tl"]
+[gd_scene load_steps=14 format=3 uid="uid://bk03xp6o028tl"]
 
 [ext_resource type="Script" path="res://scenes/ui/character_selection_screen.gd" id="1_ac8tk"]
 [ext_resource type="PackedScene" uid="uid://cpirxdsrphy4k" path="res://scenes/ui/character_selection_card.tscn" id="2_6r3ju"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://bkdwh0r7tay70" path="res://resources/characters/viking.tres" id="4_uymqh"]
 [ext_resource type="Resource" uid="uid://d4juj47pbigbo" path="res://resources/characters/warrior.tres" id="5_lonm6"]
 [ext_resource type="Resource" uid="uid://c31jf2n32eaei" path="res://resources/characters/wizard.tres" id="6_ox6kk"]
+[ext_resource type="Texture2D" uid="uid://5tlgbpyi1hd0" path="res://scenes/game_objects/currency/currency.png" id="7_x1weu"]
 
 [sub_resource type="Animation" id="Animation_s1spq"]
 length = 0.001
@@ -63,6 +64,30 @@ _data = {
 "out": SubResource("Animation_ga72d")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tu1mw"]
+bg_color = Color(1.2514e-06, 0.60484, 0.851204, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehnwm"]
+bg_color = Color(0.227991, 0.736852, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.247059, 0.14902, 0.192157, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
 [node name="CharacterSelectionScreen" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_ac8tk")
@@ -111,7 +136,21 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 8
 
-[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MetaUpgradesButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_tu1mw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ehnwm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ehnwm")
+text = "Meta Upgrades"
+icon = ExtResource("7_x1weu")
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2

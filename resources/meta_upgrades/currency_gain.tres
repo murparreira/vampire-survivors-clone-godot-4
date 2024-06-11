@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://b6ptc25ckuwnq"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_fdovp"]
+
+[resource]
+script = ExtResource("1_fdovp")
+id = "currency_gain"
+max_quantity = 5
+currency_cost = 100
+name = "Coin Drop"
+description = "Increases coin drop chance by 10%"

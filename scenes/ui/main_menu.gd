@@ -4,15 +4,11 @@ var options_scene = preload("res://scenes/ui/options_menu.tscn")
 
 func _ready():
 	$%PlayButton.pressed.connect(on_play_pressed)
-	$%MetaUpgradesButton.pressed.connect(on_meta_upgrades_pressed)
 	$%OptionsButton.pressed.connect(on_options_pressed)
 	$%QuitButton.pressed.connect(on_quit_pressed)
 
 func on_play_pressed():
 	SceneManager.swap_scenes("res://scenes/ui/character_selection_screen.tscn", get_tree().root, self, "fade_to_black")
-
-func on_meta_upgrades_pressed():
-	SceneManager.swap_scenes("res://scenes/ui/meta_upgrades_menu.tscn", get_tree().root, self, "fade_to_black")
 
 func on_options_pressed():
 	var options_instance = options_scene.instantiate()

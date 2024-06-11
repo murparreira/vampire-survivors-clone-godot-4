@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://1cyk6h1he6nv"]
+[gd_scene load_steps=24 format=3 uid="uid://1cyk6h1he6nv"]
 
 [ext_resource type="Script" path="res://scenes/game_objects/mimic_enemy/mimic_enemy.gd" id="1_8713b"]
 [ext_resource type="PackedScene" uid="uid://derxncbuykfl5" path="res://scenes/components/vial_drop_component.tscn" id="2_cpye1"]
+[ext_resource type="PackedScene" uid="uid://bs75jxwyu45lt" path="res://scenes/components/currency_component.tscn" id="3_7jo8t"]
 [ext_resource type="PackedScene" uid="uid://dvdfe8d2x17yl" path="res://scenes/components/health_component.tscn" id="3_rgj7p"]
 [ext_resource type="PackedScene" uid="uid://bpot2gx8sfwsm" path="res://scenes/components/damage_component.tscn" id="4_85ivv"]
 [ext_resource type="PackedScene" uid="uid://02s3xbwq1jcb" path="res://scenes/components/death_component.tscn" id="5_ymd4n"]
@@ -104,7 +105,10 @@ autoplay = "walk"
 
 [node name="VialDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_cpye1")]
 health_component = NodePath("../HealthComponent")
-drop_chance = 1.0
+
+[node name="CurrencyComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_7jo8t")]
+health_component = NodePath("../HealthComponent")
+drop_chance = 0.5
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_rgj7p")]
 max_health = 50.0

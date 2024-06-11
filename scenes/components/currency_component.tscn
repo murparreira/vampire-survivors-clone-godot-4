@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs75jxwyu45lt"]
+
+[ext_resource type="Script" path="res://scenes/components/currency_component.gd" id="1_lcs0b"]
+[ext_resource type="PackedScene" uid="uid://jdhn6fsdvaj6" path="res://scenes/game_objects/currency/currency.tscn" id="2_xretv"]
+
+[node name="CurrencyComponent" type="Node"]
+script = ExtResource("1_lcs0b")
+currency_scene = ExtResource("2_xretv")

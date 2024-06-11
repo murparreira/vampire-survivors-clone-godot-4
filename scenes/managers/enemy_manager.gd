@@ -4,6 +4,7 @@ signal boss_defeated
 
 @export var end_screen_scene: PackedScene
 @export var basic_enemy_scene: PackedScene
+@export var mouse_enemy_scene: PackedScene
 @export var spider_enemy_scene: PackedScene
 @export var bat_enemy_scene: PackedScene
 @export var crab_enemy_scene: PackedScene
@@ -22,6 +23,7 @@ var enemy_table = WeightedTable.new()
 
 func _ready():
 	enemy_table.add_item(basic_enemy_scene, 20)
+	enemy_table.add_item(mouse_enemy_scene, 20)
 	base_spawn_time = timer.wait_time
 	timer.timeout.connect(on_timer_timeout)
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
@@ -150,7 +152,8 @@ func on_boss_enemy_spawn():
 	set_boss_attributes(boss_enemy)
 
 func on_boss_defeat():
+	MetaProgression.add_statistics_to_save_data("win_total_count", 1)
 	var end_screen_instance = end_screen_scene.instantiate()
 	add_child(end_screen_instance)
 	end_screen_instance.play_jingle()
-	MetaProgression.add_statistics_to_save_data("win_total_count", 1)
+

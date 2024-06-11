@@ -11,6 +11,9 @@ var base_wait_time
 var anvil_number = 1
 
 func _ready():
+	var attack_gain_level = MetaProgression.save_data["meta_upgrades"]["attack_gain"]["level"]
+	if attack_gain_level >= 1:
+		base_damage *= 1 + (attack_gain_level * .2)
 	base_wait_time = $Timer.wait_time
 	$Timer.timeout.connect(on_timer_timeout)
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)

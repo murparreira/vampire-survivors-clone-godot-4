@@ -6,12 +6,29 @@ var save_data: Dictionary = {
 	"win_total_count": 0,
 	"loss_total_count": 0,
 	"meta_upgrade_currency": 0,
-	"meta_upgrades": {}
+	"meta_upgrades": {
+		"experience_gain": {
+			"level": 0,
+			"currency_cost": 100,
+			"level_multiplier": 2,
+		},
+		"currency_gain": {
+			"level": 0,
+			"currency_cost": 200,
+			"level_multiplier": 2,
+		},
+		"attack_gain": {
+			"level": 0,
+			"currency_cost": 1000,
+			"level_multiplier": 2,
+		}
+	}
 }
 
 func _ready():
 	load_save_file()
-	GameEvents.experience_vial_collected.connect(on_experience_vial_collected)
+	print(save_data)
+	GameEvents.currency_collected.connect(on_currency_collected)
 
 func load_save_file():
 	if !FileAccess.file_exists(SAVE_FILE_PATH):
@@ -26,14 +43,20 @@ func save():
 func add_meta_upgrade(meta_upgrade: MetaUpgrade):
 	if !save_data["meta_upgrades"].has(meta_upgrade.id):
 		save_data["meta_upgrades"][meta_upgrade.id] = {
-			"quantity": 0
+			"level": 0,
+			"currency_cost": 0,
+			"level_multiplier": 0,
+			"current_currency_spent": 0
 		}
-	save_data["meta_upgrades"][meta_upgrade.id]["quantity"] += 1
+	save_data["meta_upgrades"][meta_upgrade.id]["level"] += 1
 	print("Altered save data: ", save_data)
+	
+func update_meta_upgrade(meta_upgrade_id: String, attribute: String, quantity: int):
+	save_data["meta_upgrades"][meta_upgrade_id][attribute] = quantity
 
-func get_meta_upgrade_count(meta_upgrade_id: String):
+func get_meta_upgrade_level(meta_upgrade_id: String):
 	if save_data["meta_upgrades"].has(meta_upgrade_id):
-		return save_data["meta_upgrades"][meta_upgrade_id]["quantity"]
+		return save_data["meta_upgrades"][meta_upgrade_id]["level"]
 	return 0
 
 func add_statistics_to_save_data(statistic: String, count: int):
@@ -42,5 +65,5 @@ func add_statistics_to_save_data(statistic: String, count: int):
 	else:
 		save_data[statistic] = 0
 
-func on_experience_vial_collected(number: float):
+func on_currency_collected(number: int):
 	save_data["meta_upgrade_currency"] += number

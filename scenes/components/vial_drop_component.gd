@@ -11,7 +11,7 @@ func _ready():
 
 func on_died():
 	var adjusted_drop_chance = drop_chance
-	var experience_gain_meta_upgrade_count = MetaProgression.get_meta_upgrade_count("experience_gain")
+	var experience_gain_meta_upgrade_count = MetaProgression.get_meta_upgrade_level("experience_gain")
 	if experience_gain_meta_upgrade_count > 0:
 		adjusted_drop_chance += .5
 

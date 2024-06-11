@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2nhto4lln1np"
-path="res://.godot/imported/rat_enemy.png-93eb292a29c4b0c4f7fcfda7ac655668.ctex"
+uid="uid://5tlgbpyi1hd0"
+path="res://.godot/imported/currency.png-9e2d786ab7ddea83d7b7f3f90baef992.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/game_objects/basic_enemy/rat_enemy.png"
-dest_files=["res://.godot/imported/rat_enemy.png-93eb292a29c4b0c4f7fcfda7ac655668.ctex"]
+source_file="res://scenes/game_objects/currency/currency.png"
+dest_files=["res://.godot/imported/currency.png-9e2d786ab7ddea83d7b7f3f90baef992.ctex"]
 
 [params]
 

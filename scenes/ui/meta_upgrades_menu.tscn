@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=3 uid="uid://frllytaorggv"]
+[gd_scene load_steps=19 format=3 uid="uid://frllytaorggv"]
 
 [ext_resource type="Script" path="res://scenes/ui/meta_upgrades_menu.gd" id="1_5thkd"]
 [ext_resource type="Resource" uid="uid://ddypnqibkmodg" path="res://resources/meta_upgrades/experience_gain.tres" id="2_hghjc"]
 [ext_resource type="Texture2D" uid="uid://y3b7ak4gxxjl" path="res://assets/environment/tilemap_packed.png" id="2_vbh0p"]
+[ext_resource type="Resource" uid="uid://b6ptc25ckuwnq" path="res://resources/meta_upgrades/currency_gain.tres" id="3_rdn50"]
 [ext_resource type="Texture2D" uid="uid://datgp8uqb2oqn" path="res://assets/environment/tilemap_snow_packed.png" id="3_uj4cv"]
+[ext_resource type="Resource" uid="uid://u5q3o8yikau3" path="res://resources/meta_upgrades/attack_gain.tres" id="4_minui"]
 [ext_resource type="Texture2D" uid="uid://53df27w76ayn" path="res://assets/environment/tilemap_forest_packed.png" id="4_xnyjl"]
 [ext_resource type="Texture2D" uid="uid://o3800fvjq3ju" path="res://assets/environment/tilemap_water_packed.png" id="5_x4f47"]
-[ext_resource type="PackedScene" uid="uid://0pk5d70kx7ew" path="res://scenes/ui/meta_upgrade_card.tscn" id="6_lnmgj"]
 [ext_resource type="PackedScene" uid="uid://xckwtpd3y2pc" path="res://scenes/ui/vignette.tscn" id="7_rw1js"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_o2aeu"]
@@ -2121,7 +2122,7 @@ pattern_3 = SubResource("TileMapPattern_yy517")
 [node name="MetaUpgradesMenu" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_5thkd")
-meta_upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrade.gd")]([ExtResource("2_hghjc")])
+meta_upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrade.gd")]([ExtResource("2_hghjc"), ExtResource("3_rdn50"), ExtResource("4_minui")])
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_wu5ru")
@@ -2150,31 +2151,19 @@ size_flags_horizontal = 6
 theme_override_constants/h_separation = 16
 columns = 2
 
-[node name="MetaUpgradeCard" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("6_lnmgj")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="MetaUpgradeCard2" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("6_lnmgj")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard3" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("6_lnmgj")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard4" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("6_lnmgj")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard5" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("6_lnmgj")]
-layout_mode = 2
-
-[node name="MetaUpgradeCard6" parent="ScrollContainer/MarginContainer/GridContainer" instance=ExtResource("6_lnmgj")]
-layout_mode = 2
-
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(120, 0)
-offset_left = 24.0
-offset_top = 16.0
-offset_right = 144.0
-offset_bottom = 37.0
+layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Back to Main Menu"

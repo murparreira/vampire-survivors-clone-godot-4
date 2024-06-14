@@ -78,8 +78,8 @@ func spawn_enemy(enemy: Node2D):
 
 func set_boss_attributes(boss_enemy: Node2D):
 	boss_enemy.sprite.scale = Vector2(5, 5)
-	boss_enemy.velocity_component.max_speed = 300
-	boss_enemy.velocity_component.acceleration = 1
+	boss_enemy.velocity_component.max_speed = 350
+	boss_enemy.velocity_component.acceleration = 5
 	boss_enemy.damage_component.damage = 30
 	boss_enemy.health_component.max_health = 3000
 	boss_enemy.health_component.current_health = 3000
@@ -93,6 +93,7 @@ func set_boss_attributes(boss_enemy: Node2D):
 	else:
 		boss_enemy.hurtbox_collision_shape.shape.radius = 42
 	boss_enemy.hurtbox_collision_shape.position.y = -30
+	boss_enemy.set_collision_mask_value(1, false)
 	boss_enemy.boss = true
 	boss_enemy.health_component.died.connect(on_boss_defeat)
 

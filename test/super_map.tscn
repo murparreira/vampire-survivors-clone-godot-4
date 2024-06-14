@@ -1,0 +1,53 @@
+[gd_scene load_steps=14 format=3 uid="uid://pehjav2ijolw"]
+
+[ext_resource type="Script" path="res://test/super_map.gd" id="1_x7o3t"]
+[ext_resource type="PackedScene" uid="uid://cvyqbbj5iadwe" path="res://test/c_chunk.tscn" id="2_5p2ju"]
+[ext_resource type="PackedScene" uid="uid://cxrc44w6kq4rm" path="res://test/e_chunk.tscn" id="3_t00ti"]
+[ext_resource type="PackedScene" uid="uid://c00vhgkam48r0" path="res://test/n_chunk.tscn" id="4_p2wp2"]
+[ext_resource type="PackedScene" uid="uid://cc5gw8bm1wxqm" path="res://test/s_chunk.tscn" id="5_iqjs0"]
+[ext_resource type="PackedScene" uid="uid://dw6kg5pj47now" path="res://test/w_chunk.tscn" id="6_lkaho"]
+[ext_resource type="PackedScene" uid="uid://ig2rqbfcao2d" path="res://test/ne_chunk.tscn" id="7_ycym8"]
+[ext_resource type="PackedScene" uid="uid://c435m5ejv5nop" path="res://test/nw_chunk.tscn" id="8_2sfwc"]
+[ext_resource type="PackedScene" uid="uid://83d2skq3qx7j" path="res://test/se_chunk.tscn" id="9_kdduv"]
+[ext_resource type="PackedScene" uid="uid://b0soxdg2glka6" path="res://test/sw_chunk.tscn" id="10_3kc5n"]
+[ext_resource type="PackedScene" uid="uid://bklf8put7tnro" path="res://scenes/game_objects/player/player.tscn" id="11_j5gqn"]
+[ext_resource type="Texture2D" uid="uid://bo1sm21ulhsiy" path="res://resources/characters/sister.png" id="12_avd40"]
+[ext_resource type="TileSet" uid="uid://dndtpea0a1ngx" path="res://resources/tileset.tres" id="13_bkbus"]
+
+[node name="SuperMap" type="Node2D"]
+script = ExtResource("1_x7o3t")
+w_chunk = ExtResource("6_lkaho")
+n_chunk = ExtResource("4_p2wp2")
+ne_chunk = ExtResource("7_ycym8")
+c_chunk = ExtResource("2_5p2ju")
+e_chunk = ExtResource("3_t00ti")
+s_chunk = ExtResource("5_iqjs0")
+nw_chunk = ExtResource("8_2sfwc")
+se_chunk = ExtResource("9_kdduv")
+sw_chunk = ExtResource("10_3kc5n")
+
+[node name="Player" parent="." instance=ExtResource("11_j5gqn")]
+z_index = 999
+position = Vector2(32, 40)
+collision_layer = 128
+collision_mask = 0
+
+[node name="VelocityComponent" parent="Player" index="1"]
+acceleration = 90.0
+
+[node name="CollisionArea2D" parent="Player" index="7"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="Sprite2D" parent="Player/Visuals" index="0"]
+texture = ExtResource("12_avd40")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(32, 32)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("13_bkbus")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 0, 4, 1, 0, 4, 2, 0, 4, 3, 0, 4, 65539, 0, 4, 65538, 0, 4, 65537, 0, 4, 65536, 0, 4, 131072, 0, 4, 196608, 0, 4, 196609, 0, 4, 196610, 0, 4, 196611, 0, 4, 131075, 0, 4, 131074, 0, 4, 131073, 0, 4)
+
+[editable path="Player"]

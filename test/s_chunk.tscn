@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc5gw8bm1wxqm"]
+
+[ext_resource type="TileSet" uid="uid://dndtpea0a1ngx" path="res://resources/tileset.tres" id="1_21s17"]
+[ext_resource type="Script" path="res://test/s_chunk.gd" id="1_k7bbh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rl020"]
+size = Vector2(64, 64)
+
+[node name="SChunk" type="Node2D" groups=["map_chunk"]]
+script = ExtResource("1_k7bbh")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_21s17")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 131073, 3, 65536, 131073, 3, 131072, 131073, 3, 196608, 131073, 3, 1, 131073, 3, 65537, 131073, 3, 131073, 131073, 3, 196609, 131073, 3, 2, 131073, 3, 65538, 131073, 3, 131074, 131073, 3, 196610, 131073, 3, 3, 131073, 3, 65539, 131073, 3, 131075, 131073, 3, 196611, 131073, 3)
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_rl020")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://frllytaorggv"]
+[gd_scene load_steps=20 format=3 uid="uid://frllytaorggv"]
 
 [ext_resource type="Script" path="res://scenes/ui/meta_upgrades_menu.gd" id="1_5thkd"]
 [ext_resource type="Resource" uid="uid://ddypnqibkmodg" path="res://resources/meta_upgrades/experience_gain.tres" id="2_hghjc"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://datgp8uqb2oqn" path="res://assets/environment/tilemap_snow_packed.png" id="3_uj4cv"]
 [ext_resource type="Resource" uid="uid://u5q3o8yikau3" path="res://resources/meta_upgrades/attack_gain.tres" id="4_minui"]
 [ext_resource type="Texture2D" uid="uid://53df27w76ayn" path="res://assets/environment/tilemap_forest_packed.png" id="4_xnyjl"]
+[ext_resource type="Resource" uid="uid://c2qj0i3nonvfp" path="res://resources/meta_upgrades/health_regen.tres" id="5_gegh1"]
 [ext_resource type="Texture2D" uid="uid://o3800fvjq3ju" path="res://assets/environment/tilemap_water_packed.png" id="5_x4f47"]
 [ext_resource type="PackedScene" uid="uid://xckwtpd3y2pc" path="res://scenes/ui/vignette.tscn" id="7_rw1js"]
 
@@ -2122,7 +2123,7 @@ pattern_3 = SubResource("TileMapPattern_yy517")
 [node name="MetaUpgradesMenu" type="CanvasLayer"]
 layer = 2
 script = ExtResource("1_5thkd")
-meta_upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrade.gd")]([ExtResource("2_hghjc"), ExtResource("3_rdn50"), ExtResource("4_minui")])
+meta_upgrades = Array[Resource("res://resources/meta_upgrades/meta_upgrade.gd")]([ExtResource("2_hghjc"), ExtResource("3_rdn50"), ExtResource("4_minui"), ExtResource("5_gegh1")])
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_wu5ru")

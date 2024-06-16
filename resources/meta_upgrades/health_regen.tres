@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="MetaUpgrade" load_steps=2 format=3 uid="uid://c2qj0i3nonvfp"]
+
+[ext_resource type="Script" path="res://resources/meta_upgrades/meta_upgrade.gd" id="1_31krt"]
+
+[resource]
+script = ExtResource("1_31krt")
+id = "health_regen"
+max_quantity = 1
+currency_cost = 500
+name = "Health Regen"
+description = "Regen 2 health every 20 seconds"

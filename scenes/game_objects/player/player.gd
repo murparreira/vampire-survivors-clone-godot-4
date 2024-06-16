@@ -3,6 +3,7 @@ extends CharacterBody2D
 class_name Player
 
 @onready var damage_interval_timer = $DamageIntervalTimer
+@onready var health_regen_timer: Timer = $HealthRegenTimer
 @onready var health_component = $HealthComponent
 @onready var health_bar = $HealthBar
 @onready var abilities = $Abilities
@@ -19,6 +20,10 @@ func _ready():
 	$CollisionArea2D.body_entered.connect(on_body_entered)
 	$CollisionArea2D.body_exited.connect(on_body_exited)
 	damage_interval_timer.timeout.connect(on_damage_interval_timer_timeout)
+	if MetaProgression.save_data["meta_upgrades"].has("health_regen"):
+		if MetaProgression.save_data["meta_upgrades"]["health_regen"]["level"] == 1:
+			health_regen_timer.timeout.connect(on_health_regen_timer_timeout)
+			health_regen_timer.start()
 	health_component.health_changed.connect(on_health_changed)
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 	update_health_display()
@@ -65,11 +70,15 @@ func on_body_exited(other_body: Node2D):
 func on_damage_interval_timer_timeout():
 	#check_deal_damage()
 	pass
+	
+func on_health_regen_timer_timeout():
+	health_component.damage(-2)
 
-func on_health_changed():
+func on_health_changed(damage_amount: float):
 	update_health_display()
-	GameEvents.emit_player_damaged()
-	$RandomStreamPlayer2DComponent.play_random()
+	GameEvents.emit_player_damaged(damage_amount)
+	if damage_amount > 0:
+		$RandomStreamPlayer2DComponent.play_random()
 	
 func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if ability_upgrade is Ability:

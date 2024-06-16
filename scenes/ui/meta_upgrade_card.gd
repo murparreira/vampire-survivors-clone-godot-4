@@ -21,6 +21,8 @@ func select_card():
 	$AnimationPlayer.play("selected")
 	
 func update_button():
+	if !MetaProgression.save_data["meta_upgrades"].has(meta_upgrade.id):
+		MetaProgression.save_data["meta_upgrades"][meta_upgrade.id] = MetaProgression.initial_save_data["meta_upgrades"][meta_upgrade.id]
 	var current_level = MetaProgression.save_data["meta_upgrades"][meta_upgrade.id]["level"]
 	var level_multiplier = MetaProgression.save_data["meta_upgrades"][meta_upgrade.id]["level_multiplier"]
 	var meta_upgrade_currency = MetaProgression.save_data["meta_upgrade_currency"]

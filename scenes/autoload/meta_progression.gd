@@ -21,11 +21,19 @@ var save_data: Dictionary = {
 			"level": 0,
 			"currency_cost": 1000,
 			"level_multiplier": 2,
+		},
+		"health_regen": {
+			"level": 0,
+			"currency_cost": 500,
+			"level_multiplier": 2,
 		}
 	}
 }
 
+var initial_save_data = {}
+
 func _ready():
+	initial_save_data = save_data
 	load_save_file()
 	print(save_data)
 	GameEvents.currency_collected.connect(on_currency_collected)

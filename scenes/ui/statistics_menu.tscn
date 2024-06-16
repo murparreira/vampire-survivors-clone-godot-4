@@ -66,8 +66,7 @@ text = "Total wins:"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "30
-"
+text = "0"
 
 [node name="TotalLossLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
@@ -80,7 +79,7 @@ text = "Total losses:"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "100"
+text = "0"
 
 [node name="TotalDamageLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
@@ -92,7 +91,7 @@ text = "Total damage:"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "12039209"
+text = "0"
 
 [node name="TotalKillsLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
@@ -104,7 +103,7 @@ text = "Total kills:"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "10000"
+text = "0"
 
 [node name="TotalCurrencyLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 unique_name_in_owner = true
@@ -116,7 +115,7 @@ text = "Total currency gathered:"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "12309847"
+text = "0"
 
 [node name="TotalEmptyLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -135,7 +134,7 @@ text = "Total sister plays:"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "2"
+text = "0"
 
 [node name="TotalVikingPlaysLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -146,7 +145,7 @@ text = "Total viking plays:"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "3"
+text = "0"
 
 [node name="TotalWarriorPlaysLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -157,7 +156,7 @@ text = "Total warrior plays:"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "4"
+text = "0"
 
 [node name="TotalWizardPlaysLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -168,7 +167,7 @@ text = "Total wizard plays:"
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "2"
+text = "0"
 
 [node name="BackButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_iqdwu")]
 unique_name_in_owner = true

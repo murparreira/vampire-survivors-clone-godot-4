@@ -33,7 +33,9 @@ func update_button():
 	purchase_button.disabled = is_maxed || meta_upgrade_currency <= adjusted_cost
 	if is_maxed:
 		purchase_button.text = "Upgraded to Max"
-	currency_label.text = str(meta_upgrade_currency) + "/" + str(adjusted_cost)
+		currency_label.text = "Max"
+	else:
+		currency_label.text = str(meta_upgrade_currency) + "/" + str(adjusted_cost)
 	level_label.text = "x%d" % current_level
 
 func on_gui_input(event: InputEvent):

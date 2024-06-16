@@ -5,13 +5,13 @@ class_name EndScreen
 @onready var panel_container = $%PanelContainer
 
 func _ready():
+	get_tree().paused = true
 	MetaProgression.save()
 	panel_container.pivot_offset = panel_container.size / 2
 	var tween = create_tween()
 	tween.tween_property(panel_container, "scale", Vector2.ZERO, 0)
 	tween.tween_property(panel_container, "scale", Vector2.ONE, .3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 
-	get_tree().paused = true
 	$%ContinueButton.pressed.connect(on_continue_button_pressed)
 	$%MainMenuButton.pressed.connect(on_main_menu_button_pressed)
 	$%QuitButton.pressed.connect(on_quit_button_pressed)
@@ -30,16 +30,16 @@ func set_defeat_labels_and_play_jingle():
 func on_continue_button_pressed():
 	MusicPlayer.stop()
 	BossMusicPlayer.stop()
-	get_tree().paused = false
 	SceneManager.swap_scenes("res://scenes/ui/character_selection_screen.tscn", get_tree().root, self.get_parent(), "fade_to_black")
 	MenuMusicPlayer.play()
-
-func on_main_menu_button_pressed():
 	get_tree().paused = false
+
+func on_main_menu_button_pressed():	
 	MusicPlayer.stop()
 	BossMusicPlayer.stop()
 	SceneManager.swap_scenes("res://scenes/ui/main_menu.tscn", get_tree().root, self.get_parent(), "fade_to_black")
 	MenuMusicPlayer.play()
+	get_tree().paused = false
 
 func on_quit_button_pressed():
 	get_tree().quit()

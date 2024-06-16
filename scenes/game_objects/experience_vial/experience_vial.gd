@@ -8,8 +8,9 @@ func _ready():
 	$Timer.timeout.connect(on_timer_timeout)
 	
 func collect():
-	GameEvents.emit_experience_vial_collected(1)
-	queue_free()
+	if GameData.player_is_alive:
+		GameEvents.emit_experience_vial_collected(1)
+		queue_free()
 
 func tween_collect(percent: float, start_position: Vector2):
 	var player = get_tree().get_first_node_in_group("player")

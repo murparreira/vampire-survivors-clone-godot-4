@@ -8,7 +8,8 @@ signal upgrade_selected(upgrade: AbilityUpgrade)
 @onready var card_container: HBoxContainer = $%CardContainer
 
 func _ready():
-	get_tree().paused = true
+	if get_tree().paused == false:
+		get_tree().paused = true
 
 func set_ability_upgrades(upgrades: Array[AbilityUpgrade]):
 	var delay = 0

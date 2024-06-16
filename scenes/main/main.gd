@@ -29,6 +29,7 @@ func _ready():
 	player.sprite.texture = GameData.character.character_sprite
 	player.health_component.died.connect(on_player_died)
 	upgrade_manager.apply_upgrade(GameData.character.weapon_upgrade)
+	GameData.player_is_alive = true
 
 	rendered_coordinates.append(initial_map_coordinate)
 	render_surrounding_chunks(initial_map_coordinate)
@@ -85,6 +86,7 @@ func _unhandled_input(event):
 		get_tree().root.set_input_as_handled()
 
 func on_player_died():
+	GameData.player_is_alive = false
 	MetaProgression.add_statistics_to_save_data("loss_total_count", 1)
 	var end_screen_instance = end_screen_scene.instantiate() as EndScreen
 	add_child(end_screen_instance)

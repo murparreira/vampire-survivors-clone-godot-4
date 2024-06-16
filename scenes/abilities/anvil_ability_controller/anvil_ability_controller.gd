@@ -2,7 +2,7 @@ extends Node
 
 @export var anvil_ability_scene: PackedScene
 
-const BASE_RANGE = 100
+const BASE_RANGE = 75
 
 var base_damage = 12
 var additional_damage_from_upgrades = 0
@@ -27,15 +27,16 @@ func on_timer_timeout():
 	if foreground_layer == null:
 		return
 	
+	var random_direction = Vector2.RIGHT.rotated(0)
 	for i in min(anvil_number, 5):
 		var anvil_instance = anvil_ability_scene.instantiate()
 		if anvil_instance == null:
 			return
 		foreground_layer.add_child(anvil_instance)
-		var direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
-		var spawn_position = player.global_position + (direction * randf_range(0, BASE_RANGE))
+		var spawn_position = player.global_position + (random_direction * BASE_RANGE)
 		anvil_instance.global_position = spawn_position
 		anvil_instance.hitbox_component.damage = (base_damage + additional_damage_from_upgrades) * additional_damage_percent
+		random_direction = random_direction.rotated(deg_to_rad(360/anvil_number))
 
 func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Dictionary):
 	if upgrade.id == "anvil":

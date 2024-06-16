@@ -26,8 +26,8 @@ func on_timer_timeout():
 		return
 	
 	var scythes = min(scythe_number, 5) + 3
-	for i in scythes:
-		var random_direction = Vector2.RIGHT.rotated(randf_range(0, TAU))
+	var random_direction = Vector2.RIGHT.rotated(0)
+	for i in scythes:		
 		var scythe_instance = scythe_ability.instantiate() as Node2D
 		if scythe_instance == null:
 			return

@@ -10,7 +10,7 @@ func _ready():
 	sprite.material = hit_flash_material
 	health_component.health_changed.connect(on_health_changed)
 
-func on_health_changed():
+func on_health_changed(damage_amount: float):
 	if hit_flash_tween != null && hit_flash_tween.is_valid():
 		hit_flash_tween.kill()
 

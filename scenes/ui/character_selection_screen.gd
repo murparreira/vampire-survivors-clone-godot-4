@@ -25,6 +25,7 @@ func set_characters(characters: Array[Character]):
 	
 func on_character_selected(character):
 	GameData.character = character
+	MetaProgression.add_statistics_to_save_data(character.id + "_plays", 1, true)
 	$AnimationPlayer.play("out")
 	await $AnimationPlayer.animation_finished
 	SceneManager.swap_scenes("res://scenes/ui/cutscene/cutscene.tscn", get_tree().root, self, "fade_to_black")

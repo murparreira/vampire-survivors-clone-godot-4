@@ -67,11 +67,14 @@ func get_meta_upgrade_level(meta_upgrade_id: String):
 		return save_data["meta_upgrades"][meta_upgrade_id]["level"]
 	return 0
 
-func add_statistics_to_save_data(statistic: String, count: int):
+func add_statistics_to_save_data(statistic: String, count: int, override_count: bool = false):
 	if save_data.has(statistic):
 		save_data[statistic] += count
 	else:
-		save_data[statistic] = 0
+		if override_count:
+			save_data[statistic] = count
+		else:
+			save_data[statistic] = 0
 
 func on_currency_collected(number: int):
 	save_data["meta_upgrade_currency"] += number

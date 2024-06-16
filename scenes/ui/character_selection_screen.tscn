@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/ui/character_selection_screen.gd" id="1_ac8tk"]
 [ext_resource type="PackedScene" uid="uid://cpirxdsrphy4k" path="res://scenes/ui/character_selection_card.tscn" id="2_6r3ju"]
-[ext_resource type="Resource" uid="uid://dsb7qgx72kcfw" path="res://resources/characters/farmer.tres" id="3_tnhni"]
+[ext_resource type="Resource" uid="uid://dsb7qgx72kcfw" path="res://resources/characters/sister.tres" id="3_tnhni"]
 [ext_resource type="Resource" uid="uid://bkdwh0r7tay70" path="res://resources/characters/viking.tres" id="4_uymqh"]
 [ext_resource type="Resource" uid="uid://d4juj47pbigbo" path="res://resources/characters/warrior.tres" id="5_lonm6"]
 [ext_resource type="Resource" uid="uid://c31jf2n32eaei" path="res://resources/characters/wizard.tres" id="6_ox6kk"]

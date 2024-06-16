@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("3_2edjx")
-id = "farmer"
+id = "sister"
 name = "Sister Frida"
 description = "A rogue nun, who fled St. Marika church to pursue evil spirits"
 character_sprite = ExtResource("2_7aen8")

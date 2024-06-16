@@ -24,7 +24,7 @@ func _ready():
 	upgrade_pool.add_item(upgrade_giantaxe, 10)
 	upgrade_pool.add_item(upgrade_scythe, 10)
 	upgrade_pool.add_item(upgrade_anvil, 10)
-	upgrade_pool.add_item(upgrade_ability_quantity, 999)
+	upgrade_pool.add_item(upgrade_ability_quantity, 10)
 	upgrade_pool.add_item(upgrade_buff_damage, 10)
 	upgrade_pool.add_item(upgrade_cooldown_reduction, 10)
 	upgrade_pool.add_item(upgrade_player_speed, 5)

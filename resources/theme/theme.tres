@@ -1,45 +1,45 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://p8j2t6ehvh4y"]
+[gd_resource type="Theme" load_steps=26 format=3 uid="uid://p8j2t6ehvh4y"]
 
-[ext_resource type="Texture2D" uid="uid://bbf1rfsygd24l" path="res://assets/ui/ui.png" id="1_bdium"]
+[ext_resource type="Texture2D" uid="uid://bhi088sykbsmx" path="res://assets/ui/Button_Disable.png" id="1_4p5xj"]
 [ext_resource type="FontFile" uid="uid://drrbi1wfkemy2" path="res://resources/theme/Rockboxcond12.ttf" id="1_nti61"]
+[ext_resource type="Texture2D" uid="uid://jsvlbljc5gng" path="res://assets/ui/Banner_Vertical.png" id="2_21n46"]
+[ext_resource type="Texture2D" uid="uid://bp6r3cfeh817k" path="res://assets/ui/Button_Blue.png" id="2_aiffj"]
+[ext_resource type="Texture2D" uid="uid://q0qu8ialhhct" path="res://assets/ui/Button_Hover.png" id="2_ftmv4"]
+[ext_resource type="Texture2D" uid="uid://bccwjyleucbgg" path="res://assets/ui/Button_Blue_Pressed.png" id="4_j6nt2"]
+[ext_resource type="Texture2D" uid="uid://6cq7m83tx11" path="res://assets/ui/Button_Red.png" id="6_uw3yq"]
+[ext_resource type="Texture2D" uid="uid://dv07x27eh6w4l" path="res://assets/ui/Button_Red_Pressed.png" id="7_f6dpy"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qusi4"]
-content_margin_left = 6.0
-content_margin_top = 6.0
-content_margin_right = 6.0
-content_margin_bottom = 6.0
-texture = ExtResource("1_bdium")
-texture_margin_left = 2.0
-texture_margin_top = 2.0
-texture_margin_right = 2.0
-texture_margin_bottom = 2.0
-region_rect = Rect2(17, 1, 14, 14)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_orr8e"]
+texture = ExtResource("1_4p5xj")
+texture_margin_left = 11.0
+texture_margin_top = 12.0
+texture_margin_right = 11.0
+texture_margin_bottom = 19.0
+region_rect = Rect2(7, 0, 50, 56)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6sff"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gxcjm"]
+texture = ExtResource("2_ftmv4")
+texture_margin_left = 11.0
+texture_margin_top = 12.0
+texture_margin_right = 11.0
+texture_margin_bottom = 19.0
+region_rect = Rect2(7, 0, 50, 56)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kbwr3"]
-texture = ExtResource("1_bdium")
-texture_margin_left = 3.0
-texture_margin_top = 3.0
-texture_margin_right = 3.0
-texture_margin_bottom = 3.0
-region_rect = Rect2(20, 20, 8, 8)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2oox5"]
+texture = ExtResource("2_aiffj")
+texture_margin_left = 11.0
+texture_margin_top = 12.0
+texture_margin_right = 11.0
+texture_margin_bottom = 19.0
+region_rect = Rect2(7, 0, 50, 56)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ndk0i"]
-texture = ExtResource("1_bdium")
-texture_margin_left = 3.0
-texture_margin_top = 3.0
-texture_margin_right = 3.0
-texture_margin_bottom = 3.0
-region_rect = Rect2(4, 20, 8, 8)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cid7c"]
-texture = ExtResource("1_bdium")
-texture_margin_left = 3.0
-texture_margin_top = 3.0
-texture_margin_right = 3.0
-texture_margin_bottom = 3.0
-region_rect = Rect2(4, 20, 8, 8)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_esmad"]
+texture = ExtResource("4_j6nt2")
+texture_margin_left = 11.0
+texture_margin_top = 12.0
+texture_margin_right = 11.0
+texture_margin_bottom = 19.0
+region_rect = Rect2(7, 0, 50, 56)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_71h1e"]
 size = Vector2(0, 0)
@@ -73,12 +73,12 @@ bg_color = Color(0.247059, 0.14902, 0.192157, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hl8d5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_imw5r"]
-texture = ExtResource("1_bdium")
-texture_margin_left = 4.0
-texture_margin_top = 13.0
-texture_margin_right = 4.0
-texture_margin_bottom = 10.0
-region_rect = Rect2(0, 0, 16, 16)
+texture = ExtResource("2_21n46")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+region_rect = Rect2(36, 31, 120, 131)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drx7k"]
 bg_color = Color(0.247059, 0.14902, 0.192157, 1)
@@ -91,19 +91,49 @@ border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.247059, 0.14902, 0.192157, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljngm"]
+texture = ExtResource("1_4p5xj")
+texture_margin_left = 11.0
+texture_margin_top = 12.0
+texture_margin_right = 11.0
+texture_margin_bottom = 19.0
+region_rect = Rect2(7, 0, 50, 56)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8qche"]
+texture = ExtResource("2_ftmv4")
+texture_margin_left = 11.0
+texture_margin_top = 12.0
+texture_margin_right = 11.0
+texture_margin_bottom = 19.0
+region_rect = Rect2(7, 0, 50, 56)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rtgk6"]
+texture = ExtResource("6_uw3yq")
+texture_margin_left = 11.0
+texture_margin_top = 12.0
+texture_margin_right = 11.0
+texture_margin_bottom = 19.0
+region_rect = Rect2(7, 0, 50, 56)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_om2wt"]
+texture = ExtResource("7_f6dpy")
+texture_margin_left = 11.0
+texture_margin_top = 12.0
+texture_margin_right = 11.0
+texture_margin_bottom = 19.0
+region_rect = Rect2(7, 0, 50, 56)
+
 [resource]
 default_font = ExtResource("1_nti61")
 default_font_size = 16
-AlternatePanelContainer/base_type = &"PanelContainer"
-AlternatePanelContainer/styles/panel = SubResource("StyleBoxTexture_qusi4")
 Button/colors/font_color = Color(0.247059, 0.14902, 0.192157, 1)
 Button/colors/font_focus_color = Color(0.247059, 0.14902, 0.192157, 1)
-Button/colors/font_hover_color = Color(0.741176, 0.423529, 0.290196, 1)
+Button/colors/font_hover_color = Color(0.247059, 0.14902, 0.192157, 1)
 Button/colors/font_pressed_color = Color(0.247059, 0.14902, 0.192157, 1)
-Button/styles/focus = SubResource("StyleBoxEmpty_f6sff")
-Button/styles/hover = SubResource("StyleBoxTexture_kbwr3")
-Button/styles/normal = SubResource("StyleBoxTexture_ndk0i")
-Button/styles/pressed = SubResource("StyleBoxTexture_cid7c")
+Button/styles/disabled = SubResource("StyleBoxTexture_orr8e")
+Button/styles/hover = SubResource("StyleBoxTexture_gxcjm")
+Button/styles/normal = SubResource("StyleBoxTexture_2oox5")
+Button/styles/pressed = SubResource("StyleBoxTexture_esmad")
 HSlider/icons/grabber = SubResource("PlaceholderTexture2D_71h1e")
 HSlider/icons/grabber_highlight = SubResource("PlaceholderTexture2D_uspqd")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_plqic")
@@ -122,3 +152,12 @@ Label/styles/normal = SubResource("StyleBoxEmpty_hl8d5")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_imw5r")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_drx7k")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_42w37")
+RedButton/base_type = &"Button"
+RedButton/colors/font_color = Color(0.247059, 0.14902, 0.192157, 1)
+RedButton/colors/font_focus_color = Color(0.247059, 0.14902, 0.192157, 1)
+RedButton/colors/font_hover_color = Color(0.247059, 0.14902, 0.192157, 1)
+RedButton/colors/font_pressed_color = Color(0.247059, 0.14902, 0.192157, 1)
+RedButton/styles/disabled = SubResource("StyleBoxTexture_ljngm")
+RedButton/styles/hover = SubResource("StyleBoxTexture_8qche")
+RedButton/styles/normal = SubResource("StyleBoxTexture_rtgk6")
+RedButton/styles/pressed = SubResource("StyleBoxTexture_om2wt")

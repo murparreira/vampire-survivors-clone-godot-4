@@ -11,5 +11,10 @@ id = "giantaxe"
 max_quantity = 5
 base_damage = 8
 name = "Giantaxe"
-description = "Periodically sends out a spinning Giantaxe"
+description = "Periodically sends out a spinning Giantaxe.
++1 Acquire upgrade
++2 Add +4 damage
++3 Add +8 damage
++4 Add +12 damage
++5 Add +16 damage"
 sprite = ExtResource("2_vv23g")

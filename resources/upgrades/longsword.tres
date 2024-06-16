@@ -11,5 +11,10 @@ id = "longsword"
 max_quantity = 5
 base_damage = 4
 name = "Longsword"
-description = "Spawn a Longsword on the closest enemy"
+description = "Spawn a Longsword on the closest enemy
++1 Acquire upgrade
++2 Add +2 damage
++3 Add +4 damage
++4 Add +6 damage
++5 Add +8 damage"
 sprite = ExtResource("3_4purg")

@@ -5,6 +5,7 @@ extends PanelContainer
 @onready var purchase_button = %PurchaseButton
 @onready var currency_label = %CurrencyLabel
 @onready var level_label = %LevelLabel
+@onready var max_label: Label = %MaxLabel
 
 var meta_upgrade: MetaUpgrade
 
@@ -16,9 +17,6 @@ func set_meta_upgrade_data(meta_upgrade: MetaUpgrade):
 	name_label.text = meta_upgrade.name
 	description_label.text = meta_upgrade.description
 	update_button()
-
-func select_card():
-	$AnimationPlayer.play("selected")
 	
 func update_button():
 	if !MetaProgression.save_data["meta_upgrades"].has(meta_upgrade.id):
@@ -30,17 +28,19 @@ func update_button():
 	var adjusted_cost = meta_upgrade.currency_cost
 	if current_level >= 1:
 		adjusted_cost = meta_upgrade.currency_cost * current_level * level_multiplier
-	purchase_button.disabled = is_maxed || meta_upgrade_currency <= adjusted_cost
 	if is_maxed:
 		purchase_button.text = "Upgraded to Max"
 		currency_label.text = "Max"
 	else:
 		currency_label.text = str(meta_upgrade_currency) + "/" + str(adjusted_cost)
 	level_label.text = "x%d" % current_level
-
-func on_gui_input(event: InputEvent):
-	if event.is_action_pressed("left_click"):
-		select_card()
+	if is_maxed:
+		max_label.visible = true
+		purchase_button.visible = false
+	else:
+		max_label.visible = false
+		purchase_button.visible = true
+		purchase_button.disabled = meta_upgrade_currency <= adjusted_cost
 
 func on_purchase_button_pressed():
 	if meta_upgrade == null:
@@ -55,4 +55,3 @@ func on_purchase_button_pressed():
 	MetaProgression.save_data["meta_upgrade_currency"] -= max(0, adjusted_meta_upgrade_currency)
 	MetaProgression.save()
 	get_tree().call_group("meta_upgrade_card", "update_button")
-	$AnimationPlayer.play("selected")

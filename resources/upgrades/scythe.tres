@@ -11,5 +11,10 @@ id = "scythe"
 max_quantity = 5
 base_damage = 6
 name = "Scythe"
-description = "Throws spinning Scythes in 4 random directions"
+description = "Throws spinning Scythes around the user
++1 Acquire upgrade
++2 Add +3 damage
++3 Add +6 damage
++4 Add +9 damage
++5 Add +12 damage"
 sprite = ExtResource("3_0sgbw")

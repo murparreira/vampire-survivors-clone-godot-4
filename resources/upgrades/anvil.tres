@@ -11,5 +11,10 @@ id = "anvil"
 max_quantity = 5
 base_damage = 12
 name = "Anvil"
-description = "Drops Anvils from heaven around the player"
+description = "Drops Anvils from heaven around the player
++1 Acquire upgrade
++2 Add +6 damage
++3 Add +12 damage
++4 Add +18 damage
++5 Add +24 damage"
 sprite = ExtResource("2_r7i0k")

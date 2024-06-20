@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://g0efi6cjxj0q"]
+[gd_scene load_steps=23 format=3 uid="uid://g0efi6cjxj0q"]
 
 [ext_resource type="PackedScene" uid="uid://byuhio647n5g1" path="res://scenes/managers/enemy_manager.tscn" id="1_ah3ao"]
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_mf0n0"]
@@ -18,6 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://bawap5tgrq4un" path="res://scenes/managers/upgrade_manager.tscn" id="6_f2jrx"]
 [ext_resource type="PackedScene" uid="uid://cvyqbbj5iadwe" path="res://test/c_chunk.tscn" id="6_w2kw2"]
 [ext_resource type="PackedScene" uid="uid://dv40n4du4qwbu" path="res://scenes/game_objects/experience_vial/experience_vial.tscn" id="7_tdta7"]
+[ext_resource type="Texture2D" uid="uid://bkoyts6jvy663" path="res://assets/ui/flatDark25.png" id="19_o8u2x"]
+[ext_resource type="Texture2D" uid="uid://bwa2ojtq4edmn" path="res://assets/ui/flatDark26.png" id="20_v1tp8"]
+[ext_resource type="Texture2D" uid="uid://c26syocmd5rca" path="res://assets/ui/flatDark23.png" id="21_brysl"]
+[ext_resource type="Texture2D" uid="uid://oyjsju21c8oe" path="res://assets/ui/flatDark24.png" id="22_cit6b"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_mf0n0")
@@ -28,6 +32,50 @@ ne_chunk = ExtResource("5_hc7na")
 c_chunk = ExtResource("6_w2kw2")
 
 [node name="Vignette" parent="." instance=ExtResource("3_qu5jc")]
+
+[node name="UpButton" type="TouchScreenButton" parent="Vignette"]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+z_index = 10
+position = Vector2(64, 360)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("19_o8u2x")
+texture_pressed = ExtResource("19_o8u2x")
+action = "move_up"
+
+[node name="DownButton" type="TouchScreenButton" parent="Vignette"]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+z_index = 10
+position = Vector2(64, 424)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("20_v1tp8")
+texture_pressed = ExtResource("20_v1tp8")
+action = "move_down"
+
+[node name="LeftButton" type="TouchScreenButton" parent="Vignette"]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+z_index = 10
+position = Vector2(24, 392)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("21_brysl")
+texture_pressed = ExtResource("21_brysl")
+action = "move_left"
+
+[node name="RightButton" type="TouchScreenButton" parent="Vignette"]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+z_index = 10
+position = Vector2(104, 392)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("22_cit6b")
+texture_pressed = ExtResource("22_cit6b")
+action = "move_right"
 
 [node name="ArenaTimerUi" parent="." node_paths=PackedStringArray("arena_time_manager") instance=ExtResource("1_ug0sn")]
 arena_time_manager = NodePath("../ArenaTimeManager")

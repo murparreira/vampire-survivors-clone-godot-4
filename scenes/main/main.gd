@@ -6,6 +6,11 @@ extends Node
 @export var ne_chunk: PackedScene
 @export var c_chunk: PackedScene
 
+@onready var up_button: TouchScreenButton = %UpButton
+@onready var down_button: TouchScreenButton = %DownButton
+@onready var left_button: TouchScreenButton = %LeftButton
+@onready var right_button: TouchScreenButton = %RightButton
+
 var pause_menu_scene = preload("res://scenes/ui/pause_menu.tscn")
 @onready var player = $%Player
 @onready var upgrade_manager = $UpgradeManager
@@ -33,6 +38,16 @@ func _ready():
 
 	rendered_coordinates.append(initial_map_coordinate)
 	render_surrounding_chunks(initial_map_coordinate)
+	
+	if OS.get_name() != "Windows":
+		up_button.process_mode = Node.PROCESS_MODE_INHERIT
+		up_button.visible = true
+		down_button.process_mode = Node.PROCESS_MODE_INHERIT
+		down_button.visible = true
+		left_button.process_mode = Node.PROCESS_MODE_INHERIT
+		left_button.visible = true
+		right_button.process_mode = Node.PROCESS_MODE_INHERIT
+		right_button.visible = true
 
 func render_surrounding_chunks(map_coordinate: Vector2) -> void:
 	var coordinates_to_render = []
@@ -61,8 +76,8 @@ func render_surrounding_chunks(map_coordinate: Vector2) -> void:
 	
 	print("Rendered coordinates: " + str(rendered_coordinates))
 	coordinates_to_render.append(map_coordinate)
-	var distant_coordinates = difference(rendered_coordinates, coordinates_to_render)
-	print("Most distant coordinates: " + str(distant_coordinates))
+	#var distant_coordinates = difference(rendered_coordinates, coordinates_to_render)
+	#print("Most distant coordinates: " + str(distant_coordinates))
 
 	#var map_chunks = get_tree().get_nodes_in_group("map_chunk")
 	#for coordinate in distant_coordinates:

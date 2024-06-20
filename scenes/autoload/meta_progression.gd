@@ -6,6 +6,12 @@ var save_data: Dictionary = {
 	"win_total_count": 0,
 	"loss_total_count": 0,
 	"meta_upgrade_currency": 0,
+	"total_damage_done": 0,
+	"total_kills": 0,
+	"sister_plays": 0,
+	"viking_plays": 0,
+	"warrior_plays": 0,
+	"wizard_plays": 0,
 	"meta_upgrades": {
 		"experience_gain": {
 			"level": 0,

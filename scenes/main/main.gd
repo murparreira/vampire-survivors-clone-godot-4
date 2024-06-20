@@ -39,7 +39,7 @@ func _ready():
 	rendered_coordinates.append(initial_map_coordinate)
 	render_surrounding_chunks(initial_map_coordinate)
 	
-	if OS.get_name() != "Windows":
+	if OS.has_feature("web_android") || OS.has_feature("web_ios"):
 		up_button.process_mode = Node.PROCESS_MODE_INHERIT
 		up_button.visible = true
 		down_button.process_mode = Node.PROCESS_MODE_INHERIT

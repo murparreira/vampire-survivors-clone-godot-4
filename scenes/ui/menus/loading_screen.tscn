@@ -521,6 +521,8 @@ custom_minimum_size = Vector2(250, 20)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_17cna")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ljhlj")
+step = 1.0
+value = 30.0
 show_percentage = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

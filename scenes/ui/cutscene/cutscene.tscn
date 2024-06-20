@@ -6,9 +6,9 @@
 
 [sub_resource type="Curve2D" id="Curve2D_ma5xy"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 120, 152, 0, 0, 0, 0, 120, 152, 0, 0, 0, 0, 120, 200, 0, 0, 0, 0, 120, 256)
+"points": PackedVector2Array(0, 0, 0, 0, 120, 150, 0, 0, 0, 0, 120, 200, 0, 0, 0, 0, 120, 250)
 }
-point_count = 4
+point_count = 3
 
 [sub_resource type="Animation" id="Animation_5orn1"]
 length = 0.001
@@ -112,7 +112,7 @@ z_index = 3
 curve = SubResource("Curve2D_ma5xy")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(120, 151.871)
+position = Vector2(120, 150)
 rotation = 1.5708
 rotates = false
 loop = false

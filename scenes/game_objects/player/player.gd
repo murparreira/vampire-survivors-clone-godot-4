@@ -50,6 +50,8 @@ func get_movement_vector():
 	return Vector2(x_movement, y_movement)
 
 func check_deal_damage(damage_amount: float):
+	if GameData.god_mode:
+		return
 	if number_colliding_bodies == 0 || !damage_interval_timer.is_stopped():
 		return
 	health_component.damage(damage_amount)
@@ -85,7 +87,7 @@ func on_ability_upgrade_added(ability_upgrade: AbilityUpgrade, current_upgrades:
 		if current_upgrades[ability_upgrade.id]["quantity"] == 1:
 			abilities.add_child(ability_upgrade.ability_controller_scene.instantiate())
 	elif ability_upgrade.id == "player_speed":
-		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"] * .2)
+		velocity_component.max_speed = base_speed + (base_speed * current_upgrades["player_speed"]["quantity"] * .3)
 		print("Got a speed upgrade, now your speed is ", velocity_component.max_speed)
 	elif ability_upgrade.id == "restore_life":
 		var health_to_restore = health_component.max_health/2 + health_component.current_health

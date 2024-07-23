@@ -28,6 +28,7 @@ func _ready():
 	timer.timeout.connect(on_timer_timeout)
 	arena_time_manager.arena_difficulty_increased.connect(on_arena_difficulty_increased)
 	arena_time_manager.boss_enemy_spawn.connect(on_boss_enemy_spawn)
+	GameEvents.boss_spawned.connect(on_boss_enemy_spawn)
 	GameEvents.ability_upgrade_added.connect(on_ability_upgrade_added)
 
 func get_spawn_position():
@@ -73,12 +74,12 @@ func spawn_enemy(enemy: Node2D):
 	entities_layer.add_child(enemy)
 	enemy.global_position = get_spawn_position()
 	if upgrade_manager.current_upgrades.has("debuff_enemies"):
-		enemy.damage_component.decrease_damage_by_percentage(upgrade_manager.current_upgrades["debuff_enemies"]["quantity"] * .1)
+		enemy.damage_component.decrease_damage_by_percentage(upgrade_manager.current_upgrades["debuff_enemies"]["quantity"] * .2)
 		GameEvents.enemy_spawned.emit(1)
 
 func set_boss_attributes(boss_enemy: Node2D):
 	boss_enemy.sprite.scale = Vector2(5, 5)
-	boss_enemy.velocity_component.max_speed = 350
+	boss_enemy.velocity_component.max_speed = 320
 	boss_enemy.velocity_component.acceleration = 5
 	boss_enemy.damage_component.damage = 30
 	boss_enemy.health_component.max_health = 3000

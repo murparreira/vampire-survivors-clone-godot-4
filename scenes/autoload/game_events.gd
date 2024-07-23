@@ -8,6 +8,7 @@ signal player_damaged(damage_amount: float)
 signal enemy_defeated(number: int)
 signal enemy_spawned(number: int)
 signal enemy_despawned(number: int)
+signal boss_spawned
 
 func emit_character_selected(character: Character):
 	character_selected.emit(character)
@@ -32,3 +33,6 @@ func emit_enemy_spawned(number: int):
 	
 func emit_enemy_despawned(number: int):
 	enemy_despawned.emit(number)
+
+func emit_boss_spawned():
+	boss_spawned.emit()

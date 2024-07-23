@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b65g7ip2i76w5"]
+
+[ext_resource type="Script" path="res://scenes/abilities/fire_spin_ability_controller/fire_spin_ability_controller.gd" id="1_iib38"]
+[ext_resource type="PackedScene" uid="uid://d0thjfaoje6cp" path="res://scenes/abilities/fire_spin_ability/fire_spin_ability.tscn" id="2_8qfek"]
+
+[node name="FireSpinAbilityController" type="Node"]
+script = ExtResource("1_iib38")
+fire_spin_ability_scene = ExtResource("2_8qfek")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true

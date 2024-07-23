@@ -13,6 +13,9 @@ extends CanvasLayer
 @onready var anvil = %Anvil
 @onready var anvil_quantity = %AnvilQuantity
 @onready var anvil_damage = %AnvilDamage
+@onready var fire_spin = %FireSpin
+@onready var fire_spin_quantity = %FireSpinQuantity
+@onready var fire_spin_damage = %FireSpinDamage
 @onready var buff_potion = %BuffPotion
 @onready var buff_potion_quantity = %BuffPotionQuantity
 @onready var cooldown_potion = %CooldownPotion
@@ -64,6 +67,12 @@ func on_ability_upgrade_added(upgrade: AbilityUpgrade, current_upgrades: Diction
 				anvil_quantity.text = "x1"
 			var anvil_damage_number = int(anvil_damage.text.substr(1, 2))
 			anvil_damage.text = "+" + str(additional_damage + anvil_damage_number)
+		"fire_spin":
+			var fire_spin_quantity_number = int(fire_spin_quantity.text.substr(1, 2))
+			if fire_spin_quantity_number == 0:
+				fire_spin_quantity.text = "x1"
+			var fire_spin_damage_number = int(fire_spin_damage.text.substr(1, 2))
+			fire_spin_damage.text = "+" + str(additional_damage + fire_spin_damage_number)
 		"buff_damage":
 			buff_potion_quantity.text = "x" + str_quantity
 		"cooldown_reduction":

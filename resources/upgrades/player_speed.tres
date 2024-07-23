@@ -7,6 +7,7 @@
 script = ExtResource("1_w1ory")
 id = "player_speed"
 max_quantity = 5
+base_damage = 0
 name = "Move Speed"
-description = "Increases player movement speed by 20% (Capped at 100%)"
+description = "Increases player movement speed by 30% (Capped at 150%)"
 sprite = ExtResource("2_pxybh")

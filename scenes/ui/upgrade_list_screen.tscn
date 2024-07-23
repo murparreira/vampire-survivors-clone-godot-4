@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://xcmcjx1qnute"]
+[gd_scene load_steps=13 format=3 uid="uid://xcmcjx1qnute"]
 
 [ext_resource type="Texture2D" uid="uid://othdwyisoide" path="res://scenes/abilities/longsword_ability/longsword.png" id="1_44yhf"]
 [ext_resource type="Script" path="res://scenes/ui/upgrade_list_screen.gd" id="1_v3vxh"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bj3kk62urnmgk" path="res://resources/upgrades/cooldown_potion.png" id="5_kjh7h"]
 [ext_resource type="Texture2D" uid="uid://c6qihly08jkn3" path="res://resources/upgrades/quantity_potion.png" id="6_58ttg"]
 [ext_resource type="Texture2D" uid="uid://bgeip68mmlvgc" path="res://scenes/abilities/anvil_ability/anvil.png" id="6_ji3lb"]
+[ext_resource type="Texture2D" uid="uid://divwxk2ggd60t" path="res://resources/upgrades/fire_spin_outline.png" id="7_tofjq"]
 [ext_resource type="Texture2D" uid="uid://dciel4txgpha2" path="res://resources/upgrades/speed_potion.png" id="7_u3avf"]
 [ext_resource type="Texture2D" uid="uid://vlpx5x8h2m2i" path="res://resources/upgrades/debuff_enemies.png" id="11_skw6c"]
 
@@ -96,6 +97,25 @@ theme_override_font_sizes/font_size = 16
 text = "x0"
 
 [node name="AnvilDamage" type="Label" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "+0"
+
+[node name="FireSpin" type="TextureRect" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+texture = ExtResource("7_tofjq")
+expand_mode = 2
+
+[node name="FireSpinQuantity" type="Label" parent="MarginContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "x0"
+
+[node name="FireSpinDamage" type="Label" parent="MarginContainer/GridContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 16

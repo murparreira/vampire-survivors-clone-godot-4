@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=4 format=3 uid="uid://s3mx1pg5mu3y"]
+
+[ext_resource type="PackedScene" uid="uid://b65g7ip2i76w5" path="res://scenes/abilities/fire_spin_ability_controller/fire_spin_ability_controller.tscn" id="1_rlht3"]
+[ext_resource type="Script" path="res://resources/upgrades/ability.gd" id="2_t7q8c"]
+[ext_resource type="Texture2D" uid="uid://divwxk2ggd60t" path="res://resources/upgrades/fire_spin_outline.png" id="3_q2kn3"]
+
+[resource]
+script = ExtResource("2_t7q8c")
+ability_controller_scene = ExtResource("1_rlht3")
+id = "fire_spin"
+max_quantity = 5
+base_damage = 2
+name = "Fire Spin"
+description = "Spawn Fire around the user
++1 Acquire upgrade
++2 Add +1 damage
++3 Add +2 damage
++4 Add +4 damage
++5 Add +8 damage"
+sprite = ExtResource("3_q2kn3")
